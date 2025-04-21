@@ -1,0 +1,2308 @@
+- type: entity
+  name: дубинка-шокер
+  parent: [BaseItem, BaseMinorContraband]
+  id: Wonderprod
+  description: Дубинка, используемая для обездвиживания и удержания образцов.
+  components:
+  - type: Sprite
+    sprite: /Textures/abductor/wonderprod.rsi
+    state: wonderprod_off
+  - type: ItemToggle
+    soundActivate:
+      collection: sparks
+      params:
+        variation: 0.250
+    soundDeactivate:
+      collection: sparks
+      params:
+        variation: 0.250
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.250
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Shock: 0.1
+  - type: Stunbaton
+    energyPerUse: 120
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 0.1
+    angle: 60
+    animation: WeaponArcThrust
+  - type: StaminaDamageOnHit
+    damage: 35
+    sound: /Audio/Weapons/egloves.ogg
+  - type: StaminaDamageOnCollide
+    damage: 100
+    sound: /Audio/Weapons/egloves.ogg
+  - type: LandAtCursor # it deals stamina damage when thrown
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 25
+  - type: Battery
+    maxCharge: 360
+    startingCharge: 360
+  - type: UseDelay
+  - type: Item
+    heldPrefix: off
+    size: Normal
+  - type: Clothing
+    quickEquip: true
+    slots:
+    - back
+    - belt
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: {state: wonderprod_on}
+          False: {state: wonderprod_off}
+
+- type: entity
+  parent: [ ClothingHeadHelmetBase, BaseMinorContraband ]
+  id: ClothingHeadHelmetAlien
+  name: инопланетный шлем
+  description: С  анной формы шлем, используемый внеземными расами.
+  components:
+  - type: Sprite
+    sprite: /Textures/abductor/helmet.rsi
+  - type: Clothing
+    sprite: /Textures/abductor/helmet.rsi
+
+- type: entity
+  id: OperatingTableAlien
+  parent: Bed
+  name: инопланетный операционный стол
+  description: Стол для проведения операций над нисшими формами жизни.
+  components:
+  - type: Sprite
+    sprite: /Textures/abductor/optable.rsi
+    state: operating_table
+    noRot: true
+  - type: Icon
+    sprite: /Textures/abductor/optable.rsi
+    state: operating_table
+  - type: OperatingTable
+  - type: HealOnBuckle
+    damage:
+      types:
+        Poison: -2
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ClothingOuterVestArmorAlien
+  name: стелс-броня
+  description: Супертехнологическая защита, созданная специально под действия в условия похищения существ.
+  components:
+    - type: ItemToggle
+      onUse: false
+      soundActivate:
+        path: /Textures/abductor/warriormode_on.ogg
+      soundDeactivate:
+        path: /Textures/abductor/warriormode_off.ogg
+      soundFailToActivate:
+        path: /Textures/abductor/warriormode_fail.ogg
+    - type: Sprite
+      sprite: /Textures/abductor/armor.rsi/
+      layers:
+      - state: icon
+        map: [ "enum.ToggleVisuals.Layer" ]
+    - type: Clothing
+      sprite: /Textures/abductor/armor.rsi/
+      equipDelay: 3
+      unequipDelay: 3
+    - type: ComponentToggler
+      parent: true
+      components:
+      - type: Reflect
+        reflectProb: 0.40
+      - type: NoSlip
+    - type: ClothingSpeedModifier
+      walkModifier: 0.75
+      sprintModifier: 0.7
+    - type: UseDelay
+      delay: 999999
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.5
+          Slash: 0.4
+          Piercing: 0.3
+          Heat: 0.5
+    - type: ToggleClothing
+      disableOnUnequip: true
+      predictable: false
+      action: ActionToggleMode
+      mustEquip: true
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.ToggleVisuals.Toggled:
+          enum.ToggleVisuals.Layer:
+            True: {state: icon-on}
+            False: {state: icon}
+    - type: Magboots
+      requiresGrid: true
+      slot: outerclothing
+
+- type: entity
+  id: ActionToggleMode
+  name: Переключить режим
+  description: Переключает между боевым/стелс режимом.
+  components:
+  - type: InstantAction
+    itemIconStyle: BigItem
+    event: !type:ToggleActionEvent
+    useDelay: 15
+
+- type: entity
+  id: ComputerAlienSurveillanceCameraMonitor
+  name: консоль покупки
+  parent: BaseStructure
+  description: Позволяет купить различный инструментарий за счёт имплантированных образцов.
+  components:
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        collection: GlassSmash
+  - type: Computer
+  - type: EmitSoundOnUIOpen
+    sound:
+      collection: Keyboard
+      params:
+        volume: -1
+        variation: 0.10
+        pitch: 1.10  # low pitch keyboard sounds feel kinda weird
+    blacklist:
+      tags:
+      - NoConsoleSound
+  - type: Sprite
+    sprite: /Textures/abductor/camera.rsi
+    snapCardinals: true
+    state: cameras
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Transform
+    anchored: true
+  - type: Pullable
+  - type: ApcPowerReceiver
+    powerLoad: 2500
+  - type: Appearance
+  - type: InteractionOutline
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: Store
+    name: "\u041C\u0430\u0433\u0430\u0437\u0438\u043D"
+    categories:
+    - AbductorCategory
+    balance:
+      DNA: 0
+    currencyWhitelist:
+    - DNA
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+    singleUser: true
+
+- type: listing
+  id: AbductorChameleonProjector
+  name: uplink-chameleon-projector-name
+  description: uplink-chameleon-projector-desc
+  productEntity: ChameleonProjector
+  cost:
+    DNA: 5
+  categories:
+  - AbductorCategory
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: AbductorAgentIDCard
+  name: uplink-agent-id-card-name
+  description: uplink-agent-id-card-desc
+  productEntity: AgentIDCard
+  cost:
+    DNA: 3
+  categories:
+  - AbductorCategory
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: AbductorClothingNoSlipsShoes
+  name: uplink-clothing-no-slips-shoes-name
+  description: uplink-clothing-no-slips-shoes-desc
+  productEntity: ClothingShoesChameleonNoSlips
+  discountCategory: veryRareDiscounts
+  cost:
+    DNA: 3
+  categories:
+  - AbductorCategory
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: AbductorRadioJammer
+  name: uplink-radio-jammer-name
+  description: uplink-radio-jammer-desc
+  productEntity: RadioJammer
+  cost:
+    DNA: 5
+  categories:
+  - AbductorCategory
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: AbductorExplosiveGrenadeFlash
+  name: uplink-flash-grenade-name
+  description: uplink-flash-grenade-desc
+  productEntity: GrenadeFlashBang
+  cost:
+    DNA: 1
+  categories:
+  - AbductorCategory
+
+- type: listing
+  id: AbductorScramFter
+  name: uplink-scram-implanter-name
+  description: uplink-scram-implanter-desc
+  icon: { sprite: /Textures/Structures/Specific/anomaly.rsi, state: anom4 }
+  productEntity: ScramImplanter
+  cost:
+    DNA: 1
+  categories:
+    - AbductorCategory
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: AbductorCablecuffsListing
+  name: Улучшенный наручники
+  description: Крайне быстрое средство для связывание подобпотных.
+  productEntity: AbductorCablecuffs
+  cost:
+    DNA: 1
+  categories:
+  - AbductorCategory
+
+- type: listing
+  id: AbductorSlipocalypseClusterSoap
+  name: uplink-slipocalypse-clustersoap-name
+  description: uplink-slipocalypse-clustersoap-desc
+  productEntity: SlipocalypseClusterSoap
+  cost:
+    DNA: 1
+  categories:
+  - AbductorCategory
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: AbductorEmpImplanter
+  name: uplink-emp-implanter-name
+  description: uplink-emp-implanter-desc
+  icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: shield }
+  productEntity: EmpImplanter
+  cost:
+    DNA: 1
+  categories:
+    - AbductorCategory
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: AbductorFreedomImplanter
+  name: uplink-freedom-implanter-name
+  description: uplink-freedom-implanter-desc
+  icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: freedom }
+  productEntity: FreedomImplanter
+  cost:
+    DNA: 3
+  categories:
+    - AbductorCategory
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: AbductorEmag
+  name: uplink-emag-name
+  description: uplink-emag-desc
+  productEntity: Emag
+  discountCategory: veryRareDiscounts
+  cost:
+    DNA: 5
+  categories:
+  - AbductorCategory
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: AbductorESniper
+  name: E-Sniper
+  description: Самозарядная снайперская винтовка, стреляющая зарядами ЭМИ. Идеально для отключения вражеских приборов.
+  productEntity: WeaponEsniper
+  cost:
+    DNA: 6
+  categories:
+  - AbductorCategory
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: AbductorCybersunS120
+  name: Cybersun S-120
+  description: Бластер пистолет-пулемёт, пускающий лазерные снаряды. Быстрая скорострельность и автоматическая перезарядка гарантирует приемущество в бою.
+  productEntity: WeaponCybersunS120
+  cost:
+    DNA: 7
+  categories:
+  - AbductorCategory
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: AbductorReinforcement
+  name: телепорт подкрепления похитителя
+  description: Призывает помощника в выполнении поставленной миссии. Снаряжение более ограниченно, чем у основного похитителя.
+  productEntity: ReinforcementRadioAbductor
+  cost:
+    DNA: 5
+  categories:
+  - AbductorCategory
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: AbductorCryoRevolver
+  name: криостазисный револьвер
+  description: Самозаряжающийся револьвер, стреляющий снарядами, наполенными наноботами, понижающие температуру тела при попадании на кожу. Идеальное оружие для замедления врага.
+  productEntity: WeaponCryoRevolver
+  cost:
+    DNA: 3
+  categories:
+  - AbductorCategory
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- id: AbductorCategory
+  name: "Экипировка"
+  priority: 0
+  type: storeCategory
+
+- type: entity
+  name: улучшенные стяжки
+  description: Более уникальная версия стяжек, сделанная из более прочных материалов.
+  id: AbductorCablecuffs
+  parent: Handcuffs
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/cablecuffs.rsi
+    state: cuff
+    color: red
+  - type: Handcuff
+    cuffTime: 1.5 
+    breakoutTime: 45
+    cuffedRSI: Objects/Misc/cablecuffs.rsi
+    bodyIconState: body-overlay
+    color: red
+    breakOnRemove: true
+    brokenPrototype: CablecuffsBroken
+    startCuffSound:
+      path: /Audio/Items/Handcuffs/rope_start.ogg
+    endCuffSound:
+      path: /Audio/Items/Handcuffs/rope_end.ogg
+    startUncuffSound:
+      path: /Audio/Items/Handcuffs/rope_start.ogg
+    endUncuffSound:
+      path: /Audio/Items/Handcuffs/rope_breakout.ogg
+    startBreakoutSound:
+      path: /Audio/Items/Handcuffs/rope_takeoff.ogg
+
+- type: entity
+  id: AbductorEmpty
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.1
+
+- type: accessLevel
+  id: Abductor
+  name: "u1d&^b!rY7&G"
+
+- type: entity
+  id: AlienTeleportedToStation
+  parent: BaseStructure
+  name: телепортер
+  description: Устройство, позволяющее проникать в самые строгозасекреченные точки станции.
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: Sprite
+    sprite: /Textures/abductor/teleporter.rsi
+    snapCardinals: true
+    layers:
+    - state: teleport-idle
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: teleport-active
+      map: ["enum.StorageVisualLayers.Door"]
+  - type: AccessReader
+    access: [["Abductor"]]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        enum.StorageVisualLayers.Door:
+          True: { visible: false }
+          False: { visible: true }
+  - type: EmptyOnMachineDeconstruct
+    containers:
+      - entity_storage
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Appearance
+  - type: EntityStorage
+    capacity: 2
+    closeSound: 
+      path: /Audio/Machines/windoor_open.ogg
+    openSound: 
+      path: /Audio/Machines/windoor_open.ogg
+    airtight: false 
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container  
+  - type: BluespaceLocker
+    pickLinksFromSameMap: false
+    minBluespaceLinks: 1
+    behaviorProperties:
+      delay: 5
+      clearLinksEvery: 1
+      bluespaceEffectOnTeleportSource: false
+      bluespaceEffectOnTeleportTarget: false
+      bluespaceEffectOnInit: false
+      destroyAfterUses: -1
+      transportGas: false
+      actOnOpen: false
+      destroyAfterUsesMinItemsToCountUse: 1
+      transportEntities: false
+    autoLinksBidirectional: false
+    autoLinksUseProperties: true
+    pickLinksFromSameAccess: false
+    autoLinkProperties:
+      transportGas: true
+      actOnOpen: true
+      bluespaceEffectOnInit: false
+      bluespaceEffectOnTeleportSource: false
+      BluespaceEffectOnTeleportTarget: true
+      actOnClose: true
+      destroyAfterUses: 0
+      DestroyAfterUsesMinItemsToCountUse: 0
+      destroyType: DeleteComponent
+
+- type: entity
+  id: AlienTeleportedToShip
+  parent: BaseStructure
+  name: телепортер
+  description: Чего смотришь? Запрыгивай быстрее!
+  components:
+  - type: TriggerOnSpawn
+  - type: SpawnOnTrigger 
+    proto: EffectFlashBluespace
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+        hard: false
+  - type: TimedDespawn
+    lifetime: 20
+  - type: Sprite
+    sprite: /Textures/abductor/teleporter.rsi
+    snapCardinals: true
+    layers:
+    - state: teleport-second-idle
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: teleport-second-active
+      map: ["enum.StorageVisualLayers.Door"]
+  - type: AccessReader
+    access: [["Abductor"]]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        enum.StorageVisualLayers.Door:
+          True: { visible: false }
+          False: { visible: true }
+  - type: EmptyOnMachineDeconstruct
+    containers:
+      - entity_storage
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Appearance
+  - type: EntityStorage
+    capacity: 2
+    closeSound: 
+      path: /Audio/Machines/windoor_open.ogg
+    openSound: 
+      path: /Audio/Machines/windoor_open.ogg
+    airtight: false 
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container  
+  - type: BluespaceLocker
+    pickLinksFromSameMap: false
+    minBluespaceLinks: 1
+    pickLinksFromStationGrids: false
+    pickLinksFromBluespaceLockers: false
+    pickLinksFromResistLockers: false
+    pickLinksFromNonBluespaceLockers: false
+    behaviorProperties:
+      destroyAfterUses: 1
+      destroyAfterUsesMinItemsToCountUse: 1
+      destroyType: Delete
+      clearLinksEvery: 1
+      bluespaceEffectOnTeleportSource: false
+      bluespaceEffectOnTeleportTarget: false
+      bluespaceEffectOnInit: false
+      #destroyAfterUsesMinItemsToCountUse: -1
+      transportGas: false
+      actOnOpen: false
+      transportEntities: false
+    autoLinksBidirectional: false
+    pickLinksFromSameAccess: true
+
+- type: entity
+  id: AlienFloor_plating
+  categories: [ HideSpawnMenu ]
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: PointLight
+    color: "#B03982FF"
+    energy: 2.5
+    radius: 2
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    state: alienfloor_plating
+    drawdepth: BelowFloor
+    sprite: /Textures/abductor/floor.rsi
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  id: AlienFloor_01
+  parent: AlienFloor_plating
+  categories: [ HideSpawnMenu ]
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    _visible: false
+    sprite: /Textures/abductor/floor.rsi
+    state: alienfloor_01
+
+- type: entity
+  id: AlienFloorEmpty
+  parent: AlienFloor_plating
+  categories: [ HideSpawnMenu ]
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    _visible: false
+    sprite: /Textures/abductor/floor.rsi
+    state: empty
+
+- type: entity
+  parent: AlienFloor_plating
+  categories: [ HideSpawnMenu ]
+  id: AlienFloor_02
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    _visible: false
+    sprite: /Textures/abductor/floor.rsi
+    state: alienfloor_02
+
+- type: entity
+  parent: AlienFloor_plating
+  categories: [ HideSpawnMenu ]
+  id: AlienFloor_03
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    _visible: false
+    sprite: /Textures/abductor/floor.rsi
+    state: alienfloor_03
+
+- type: entity
+  parent: BaseWall
+  id: WallAlien_01
+  categories: [ HideSpawnMenu ]
+  name: инопланетная стена
+  description: Таинственная стена с витиеватыми узорами. Внутри могут подстерегать древние опасности.
+  components:
+  - type: Sprite
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_01
+  - type: Icon
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_01
+
+- type: entity
+  parent: BaseWall
+  id: WallAlien_02
+  categories: [ HideSpawnMenu ]
+  name: стена пришельцев
+  description: A mysterious ornate looking wall. There may be ancient dangers inside.
+  components:
+  - type: Sprite
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_02
+  - type: Icon
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_02
+  
+
+- type: entity
+  parent: BaseWall
+  id: WallAlien_03
+  categories: [ HideSpawnMenu ]
+  name: стена пришельцев
+  description: A mysterious ornate looking wall. There may be ancient dangers inside.
+  components:
+  - type: Sprite
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_03
+  - type: Icon
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_03
+
+- type: entity
+  parent: BaseWall
+  id: WallAlien_04
+  categories: [ HideSpawnMenu ]
+  name: стена пришельцев
+  description: A mysterious ornate looking wall. There may be ancient dangers inside.
+  components:
+  - type: Sprite
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_04
+  - type: Icon
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_04
+
+    
+- type: entity
+  parent: BaseWall
+  id: WallAlien_05
+  categories: [ HideSpawnMenu ]
+  name: стена пришельцев
+  description: A mysterious ornate looking wall. There may be ancient dangers inside.
+  components:
+  - type: Sprite
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_05
+  - type: Icon
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_05
+
+- type: entity
+  parent: BaseWall
+  id: WallAlien_06
+  categories: [ HideSpawnMenu ]
+  name: стена пришельцев
+  description: A mysterious ornate looking wall. There may be ancient dangers inside.
+  components:
+  - type: Sprite
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_06
+  - type: Icon
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_06
+
+- type: entity
+  parent: BaseWall
+  id: WallAlien_07
+  categories: [ HideSpawnMenu ]
+  name: стена пришельцев
+  description: A mysterious ornate looking wall. There may be ancient dangers inside.
+  components:
+  - type: Sprite
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_07
+  - type: Icon
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_07
+
+- type: entity
+  parent: BaseWall
+  id: WallAlien_09
+  categories: [ HideSpawnMenu ]
+  name: стена пришельцев
+  description: A mysterious ornate looking wall. There may be ancient dangers inside.
+  components:
+  - type: Sprite
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_09
+  - type: Icon
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_09
+
+- type: entity
+  parent: BaseWall
+  id: WallAlien_10
+  categories: [ HideSpawnMenu ]
+  name: стена пришельцев
+  description: A mysterious ornate looking wall. There may be ancient dangers inside.
+  components:
+  - type: Sprite
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_10
+  - type: Icon
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_10
+
+- type: entity
+  parent: BaseWall
+  id: WallAlien_11
+  categories: [ HideSpawnMenu ]
+  name: стена пришельцев
+  description: A mysterious ornate looking wall. There may be ancient dangers inside.
+  components:
+  - type: Sprite
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_11
+  - type: Icon
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_11
+
+- type: entity
+  parent: BaseWall
+  id: WallAlien_14
+  categories: [ HideSpawnMenu ]
+  name: стена пришельцев
+  description: A mysterious ornate looking wall. There may be ancient dangers inside.
+  components:
+  - type: Sprite
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_14
+  - type: Icon
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_14
+
+- type: entity
+  parent: BaseWall
+  id: WallAlien_15
+  categories: [ HideSpawnMenu ]
+  name: стена пришельцев
+  description: A mysterious ornate looking wall. There may be ancient dangers inside.
+  components:
+  - type: Sprite
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_15
+  - type: Icon
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_15
+
+- type: entity
+  parent: BaseWall
+  id: WallAlien_16
+  categories: [ HideSpawnMenu ]
+  name: стена пришельцев
+  description: A mysterious ornate looking wall. There may be ancient dangers inside.
+  components:
+  - type: Sprite
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_16
+  - type: Icon
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_16
+
+- type: entity
+  parent: BaseWall
+  id: WallAlien_19
+  categories: [ HideSpawnMenu ]
+  name: стена пришельцев
+  description: A mysterious ornate looking wall. There may be ancient dangers inside.
+  components:
+  - type: Sprite
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_19
+  - type: Icon
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_19
+
+- type: entity
+  parent: BaseWall
+  id: WallAlien_20
+  categories: [ HideSpawnMenu ]
+  name: стена пришельцев
+  description: A mysterious ornate looking wall. There may be ancient dangers inside.
+  components:
+  - type: Sprite
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_20
+  - type: Icon
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_20
+
+- type: entity
+  parent: BaseWall
+  id: WallAlien_21
+  categories: [ HideSpawnMenu ]
+  name: стена пришельцев
+  description: A mysterious ornate looking wall. There may be ancient dangers inside.
+  components:
+  - type: Sprite
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_21
+  - type: Icon
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_21
+
+- type: entity
+  parent: BaseWall
+  id: WallAlien_23
+  categories: [ HideSpawnMenu ]
+  name: стена пришельцев
+  description: A mysterious ornate looking wall. There may be ancient dangers inside.
+  components:
+  - type: Sprite
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_23
+  - type: Icon
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_23
+
+- type: entity
+  parent: BaseWall
+  id: WallAlien_24
+  categories: [ HideSpawnMenu ]
+  name: стена пришельцев
+  description: A mysterious ornate looking wall. There may be ancient dangers inside.
+  components:
+  - type: Sprite
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_24
+  - type: Icon
+    sprite: /Textures/abductor/wall.rsi
+    state: alienwall_24
+
+- type: entity
+  id: ActionSpawnTeleporter
+  name: Призвать врата
+  description: Создаёт врата телепортации прямиком до шаттла.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    useDelay: 45
+    itemIconStyle: BigAction
+    icon:
+      sprite: /Textures/abductor/teleporter.rsi
+      state: implant
+    event: !type:InstantSpawnSpellEvent
+      prototype: AlienTeleportedToShip
+      posData: !type:TargetCasterPos
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: AbductorTeleportImplant
+  categories: [ HideSpawnMenu ]
+  name: Призвать врата
+  description: Создаёт врата телепортации прямиком до шаттла.
+  noSpawn: true
+  components:
+    - type: SubdermalImplant
+      implantAction: ActionSpawnTeleporter
+    - type: TriggerImplantAction
+
+- type: entity
+  parent: MobGreyPerson
+  id: MobHumanAbductor
+  name: абдуктор
+  suffix: Human, Base
+  components:
+  - type: Loadout
+    prototypes: [AbductorGear]
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  - type: AutoImplant
+    implants: [ AbductorTrackingImplant, AbductorTeleportImplant ]
+  - type: Hushed
+  - type: TraitorRole
+  - type: Tag
+    tags:
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - Abductor
+
+- type: Tag
+  id: Abductor
+
+- type: radioChannel
+  id: Abductor
+  name: Телепатия
+  keycode: 'а' # Corvax-Localization
+  frequency: 8391
+  color: "#d600bd"
+  longRange: true
+
+- type: startingGear
+  id: AbductorGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorGrey
+    shoes: ClothingShoesBootsJack
+    gloves: ClothingHandsGlovesColorGray
+    pocket1: AbductorCablecuffs
+    eyes: ClothingEyesGlassesHiddenSecurity
+    head: ClothingHeadHelmetAlien
+    back: ClothingBackpackSatchel
+  inhand:
+    - Wonderprod
+  
+- type: entity
+  id: BaseOrganAlien
+  parent: BaseHumanOrgan
+  abstract: true
+  name: железа
+  description: "Синтетический орган прямиком из других цивилизаций."
+  components:
+    - type: Heart
+    - type: Organ
+      slotId: heart
+    - type: Sprite
+      sprite: /Textures/abductor/organ.rsi
+      state: health
+    - type: Metabolizer
+      maxReagents: 2
+      metabolizerTypes: [Human]
+      groups:
+        - id: Medicine
+        - id: Poison
+        - id: Narcotic
+    - type: Item
+      size: Small
+      heldPrefix: heart
+
+# - type: entity ## TODO: FIX IT
+#   id: OrganAlienHealth
+#   parent: BaseOrganAlien
+#   name: инопланетная железа
+#   description: "Синтетический орган прямиком из других цивилизаций."
+#   components:
+#     - type: Organ
+#       slotId: heart
+#       onAdd:
+#         - type: SolutionRegeneration
+#           solution: chemicals
+#           duration: 60
+#           generated:
+#             reagents:
+#             - ReagentId: Omnizine
+#               Quantity: 1
+#         - type: EmitSoundOnDrop # КОМПАЧ ПУСТЫШКА 
+#           sound:
+#             path: /Textures/abductor/laser.ogg
+#     - type: Sprite
+#       sprite: /Textures/abductor/organ.rsi
+#       state: health
+#     - type: HiddenDescription
+#       entries:
+#       - label: CORVAX PORN
+#         whitelistMind:
+#           mindRoles:
+#           - TraitorRole
+
+
+- type: entity
+  id: OrganAlienMindshock
+  parent: BaseOrganAlien
+  name: инопланетная железа
+  description: "Синтетический орган прямиком из других цивилизаций."
+  components:
+    - type: Organ
+      slotId: heart
+      onAdd:
+        - type: LightningArcShooter
+          arcDepth: 1
+          maxLightningArc: 2
+          shootMinInterval: 120
+          shootMaxInterval: 260
+          shootRange: 5
+          lightningPrototype: Lightning
+        - type: EmitSoundOnDrop # КОМПАЧ ПУСТЫШКА 
+          sound:
+            path: /Textures/abductor/laser.ogg
+    - type: Sprite
+      sprite: /Textures/abductor/organ.rsi
+      state: mindshock
+    - type: HiddenDescription
+      entries:
+      - label: Синтетическисозданная железа, заменяющее сердце. Предоставляет различные способности носителю. Данная железа пораждает удар током всех окружающих каждые несколько минут.
+        whitelistMind:
+          mindRoles:
+          - TraitorRole
+      - label: Ранее невиданный инопланетный орган. Его клапаны напоминают сердцевидное строенние. Изучив изнутри, вы можете сказать, что данный орган пораждает удар током всех окружающих каждые несколько минут.
+        jobRequired:
+          - Paramedic
+          - MedicalDoctor
+          - ChiefMedicalOfficer
+          - Surgeon
+          - Brigmedic
+
+- type: entity
+  id: OrganAlienSpider
+  parent: BaseOrganAlien
+  name: инопланетная железа
+  description: "Синтетический орган прямиком из других цивилизаций."
+  components:
+    - type: Organ
+      slotId: heart
+      onAdd:
+        - type: Spider
+        - type: IgnoreSpiderWeb
+        - type: Sericulture
+          action: ActionSericulture
+          productionLength: 2
+          entityProduced: MaterialWebSilk1
+          hungerCost: 4
+        - type: EmitSoundOnDrop # КОМПАЧ ПУСТЫШКА 
+          sound:
+            path: /Textures/abductor/laser.ogg
+    - type: Sprite
+      sprite: /Textures/abductor/organ.rsi
+      state: spider
+    - type: HiddenDescription
+      entries:
+      - label: "Синтетическисозданная железа, заменяющее сердце. Предоставляет различные способности носителю. Данная железа награждает навыками паука: плести паутину, создавать её вокруг себя, а так-же свободно ходить по ней."
+        whitelistMind:
+          mindRoles:
+          - TraitorRole
+      - label: Ранее невиданный инопланетный орган. Его клапаны напоминают сердцевидное строенние. Изучив изнутри, вы можете сказать, что данный орган способен генерировать паутину.
+        jobRequired:
+          - Paramedic
+          - MedicalDoctor
+          - ChiefMedicalOfficer
+          - Surgeon
+          - Brigmedic
+
+- type: entity
+  id: OrganAlienSlime
+  parent: BaseOrganAlien
+  name: инопланетная железа
+  description: "Синтетический орган прямиком из других цивилизаций."
+  components:
+    - type: Organ
+      slotId: heart
+      onAdd:
+        - type: Timer
+        - type: TimedSpawner
+          prototypes:
+          - MobAdultSlimesAbductorFriendlyOnCreation
+          chance: 0.95
+          intervalSeconds: 700
+          minimumEntitiesSpawned: 1
+        - type: EmitSoundOnDrop # КОМПАЧ ПУСТЫШКА 
+          sound:
+            path: /Textures/abductor/laser.ogg
+    - type: Sprite
+      sprite: /Textures/abductor/organ.rsi
+      state: slime
+    - type: HiddenDescription
+      entries:
+      - label: "Синтетическисозданная железа, заменяющее сердце. Предоставляет различные способности носителю. Данная железа заставляет цель порождать раз в несколько минут дружелюбными слаймами к носителю."
+        whitelistMind:
+          mindRoles:
+          - TraitorRole
+      - label: Ранее невиданный инопланетный орган. Его клапаны напоминают сердцевидное строенние. Изучив изнутри, вы можете сказать, что данный орган напоминает ядро слайма, генерирующий слизь.
+        jobRequired:
+          - Paramedic
+          - MedicalDoctor
+          - ChiefMedicalOfficer
+          - Surgeon
+          - Brigmedic
+
+# - type: reagent
+#   id: AbductorSlimeCreation
+#   name: ":face_with_raised_eyebrow:"
+#   group: Special
+#   desc: ":Pepe_Gun:"
+#   physicalDesc: золотое
+#   flavor: смертельное
+#   color: "#F1F336"
+#   metabolisms:
+#     Poison:
+#       metabolismRate: 0.5
+#       effects:
+#       - !type:PopupMessage
+#         type: Pvs
+#         visualType: MediumCaution
+#         messages:
+#         - "Извергает слайма!"
+#         conditions:
+#           - !type:MobStateCondition
+#             mobstate: Alive
+#           - !type:ReagentThreshold
+#             min: 1
+#       - !type:CreateEntityReactionEffect
+#           entity: MobAdultSlimesAbductorFriendlyOnCreation
+#           number: 1
+#           conditions:
+#           - !type:ReagentThreshold
+#             min: 1
+#           - !type:MobStateCondition
+#             mobstate: Alive
+
+- type: entity
+  name: синий слайм
+  description: Он так похож на желе. Интересно, каков он на вкус?
+  parent: BaseMobAdultSlimes
+  id: MobAdultSlimesAbductorFriendlyOnCreation
+  components:
+    - type: NPCImprintingOnSpawnBehaviour
+      spawnFriendsSearchRadius: 0.3
+      whitelist:
+        components:
+        - HumanoidAppearance
+    - type: NpcFactionMember
+      factions:
+        - SimpleHostile
+    - type: HTN
+      rootTask:
+        task: KillerTomatoCompound
+    - type: ReplacementAccent
+      accent: slimes
+    - type: Speech
+      speechVerb: Slime
+      speechSounds: Slime
+      allowedEmotes: ['Squish']
+    - type: TypingIndicator
+      proto: slime
+    - type: TTS # Corvax-TTS
+      voice: Chen
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: blue_adult_slime
+        Dead:
+          Base: blue_adult_slime_dead
+
+- type: entity
+  id: OrganAlienEMP
+  parent: BaseOrganAlien
+  name: инопланетная железа
+  description: "Синтетический орган прямиком из других цивилизаций."
+  components:
+    - type: Organ
+      slotId: heart
+      onAdd:
+      - type: Timer
+      - type: TimedSpawner
+        prototypes:
+        - AdminInstantEffectEMP
+        chance: 0.8
+        intervalSeconds: 250
+        minimumEntitiesSpawned: 1
+        maximumEntitiesSpawned: 1
+      - type: EmitSoundOnDrop # КОМПАЧ ПУСТЫШКА 
+        sound:
+          path: /Textures/abductor/laser.ogg
+    - type: Sprite
+      sprite: /Textures/abductor/organ.rsi
+      state: emp
+    - type: HiddenDescription
+      entries:
+      - label: "Синтетическисозданная железа, заменяющее сердце. Предоставляет различные способности носителю. Данная железа создаёт ЭМИ импульс раз в несколько минут."
+        whitelistMind:
+          mindRoles:
+          - TraitorRole
+      - label: Ранее невиданный инопланетный орган. Его клапаны напоминают сердцевидное строенние. Изучив изнутри, вы можете сказать, что данный орган способен непроизвольно создавать одномоментно большое количество энергии.
+        jobRequired:
+          - Paramedic
+          - MedicalDoctor
+          - ChiefMedicalOfficer
+          - Surgeon
+          - Brigmedic
+
+# - type: reagent
+#   id: AbductorEMPCreation
+#   name: ":face_with_raised_eyebrow:"
+#   group: Special
+#   desc: ":Pepe_Gun:"
+#   physicalDesc: золотое
+#   flavor: смертельное
+#   color: "#F1F336"
+#   metabolisms:
+#     Poison:
+#       metabolismRate: 1
+#       effects:
+#       - !type:PopupMessage
+#         type: Pvs
+#         visualType: MediumCaution
+#         messages:
+#         - "Создаёт заряд ЭМИ!"
+#         conditions:
+#           - !type:MobStateCondition
+#             mobstate: Alive
+#           - !type:ReagentThreshold
+#             min: 1
+#       - !type:EmpReactionEffect
+#         rangePerUnit: 0.2
+#         maxRange: 6
+#         energyConsumption: 12500
+#         duration: 15
+#         conditions:
+#           - !type:MobStateCondition
+#             mobstate: Alive
+#           - !type:ReagentThreshold
+#             min: 1
+          
+- type: entity
+  id: OrganAlienPlasma
+  parent: BaseOrganAlien
+  name: инопланетная железа
+  description: "Синтетический орган прямиком из других цивилизаций."
+  components:
+    - type: Organ
+      slotId: heart
+      onAdd:
+      - type: Timer
+      - type: TimedSpawner
+        prototypes:
+        - PlasmaShitFunc
+        chance: 0.95
+        intervalSeconds: 250
+        minimumEntitiesSpawned: 1
+      - type: EmitSoundOnDrop # КОМПАЧ ПУСТЫШКА 
+        sound:
+          path: /Textures/abductor/laser.ogg
+    - type: Sprite
+      sprite: /Textures/abductor/organ.rsi
+      state: vent
+    - type: HiddenDescription
+      entries:
+      - label: "Синтетическисозданная железа, заменяющее сердце. Предоставляет различные способности носителю. Данная железа заставляет цель испускать облаки плазмы."
+        whitelistMind:
+          mindRoles:
+          - TraitorRole
+      - label: Ранее невиданный инопланетный орган. Его клапаны напоминают сердцевидное строенние. Изучив изнутри, вы можете сказать, что данный орган имеет множество незамысловатых труб, насосов и.. газодобытчик плазмы?..
+        jobRequired:
+          - Paramedic
+          - MedicalDoctor
+          - ChiefMedicalOfficer
+          - Surgeon
+          - Brigmedic
+
+- type: entity
+  id: PlasmaShitFunc
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: GasMiner
+      spawnGas: Plasma
+      spawnAmount: 40
+    - type: TimedDespawn
+      lifetime: 1
+      
+# - type: reagent
+#   id: AbductorPlasmaCreation
+#   name: ":face_with_raised_eyebrow:"
+#   group: Special
+#   desc: ":Pepe_Gun:"
+#   physicalDesc: золотое
+#   flavor: смертельное
+#   color: "#F1F336"
+#   metabolisms:
+#     Poison:
+#       metabolismRate: 1
+#       effects:
+#       - !type:PopupMessage
+#         type: Pvs
+#         visualType: MediumCaution
+#         messages:
+#         - "Выпускает облако плазмы!"
+#         conditions:
+#           - !type:MobStateCondition
+#             mobstate: Alive
+#       - !type:CreateGas
+#         multiplier: 6
+#         gas: Plasma
+#         conditions:
+#           - !type:MobStateCondition
+#             mobstate: Alive
+
+
+- type: entity
+  name: Деклонер
+  parent: [ BaseWeaponBatterySmall, BaseMajorContraband ]
+  id: WeaponDecloner
+  description: Универсальное лазерное оружие, пускающее рентгеновские лучи, поражая цель радиацией.
+  components:
+  - type: Sprite
+    sprite: /Textures/abductor/alienpistol.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: HitscanBatteryAmmoProvider
+    proto: XrayLaser
+    fireCost: 100
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: Gun
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Textures/abductor/laser.ogg
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 5
+
+- type: entity
+  name: криостазисный револьвер
+  parent: [ BaseWeaponBatterySmall, BaseMajorContraband ]
+  id: WeaponCryoRevolver
+  description: Самозаряжающийся револьвер, стреляющий снарядами, наполенными наноботами, понижающие температуру тела при попадании на кожу. Идеальное оружие для замедления врага.
+  components:
+  - type: Sprite
+    sprite: /Textures/abductor/cryopistol.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-0
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
+  - type: Gun
+    fireRate: 1
+    projectileSpeed: 30
+    soundGunshot:
+      path: /Textures/abductor/laser2.ogg
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto  
+  - type: ProjectileBatteryAmmoProvider
+    proto: WatcherBolt
+    fireCost: 120
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 25
+
+- type: entity
+  parent: BaseGameRule
+  id: AbductorSpawn
+  components:
+  - type: StationEvent
+    weight: 6
+    duration: null
+    earliestStart: 30
+    reoccurrenceDelay: 20
+    minimumPlayers: 30
+  - type: RuleGrids
+  - type: AntagLoadProfileRule
+    speciesOverride: Grey
+    speciesOverrideBlacklist:
+      - Resomi
+      - Vulpkanin
+      - Arachnid
+      - Diona
+      - Dwarf
+      - Human
+      - Moth
+      - Reptilian
+      - SlimePerson
+      - Vox
+  - type: LoadMapRule
+    mapPath: /Maps/abductor/Shuttles/mothership.yml 
+  - type: AntagObjectives
+    objectives:
+    - AbductorSurviveObjective
+    - AbductorMainObjective
+  - type: AntagSelection
+    agentName: Агент-похититель Абдукторов
+    definitions:
+    - spawnerPrototype: SpawnPointAbductor
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: AbductorGear
+      components:
+      - type: AutoImplant
+        implants: [ AbductorTrackingImplant, AbductorTeleportImplant ]
+      - type: RandomMetadata
+        nameSegments:
+        - AbductoNamesPrefix
+        - AbductorName
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      - type: Muted
+      - type: Skills # Corvax-Next-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
+      mindRoles:
+      - MindRoleAbductor
+      briefing:
+        text: Вы - инопланентный агент-похититель. Вашей основной целью является кража, вставка желез и последующее сканнирование существ.
+        color: Purple
+        sound: /Textures/abductor/ayylien.ogg
+
+- type: dataset
+  id: AbductorName
+  values:
+  - "Блоб'Поглотитель"
+  - "Блоб'Похититель"
+  - "Блоб'Захватитель"
+  - "Мак'Поглотитель"
+  - "Мак'Похититель"
+  - "Мак'Захватитель"
+  - "Мак'Разрушитель"
+  - "Мак'Пожиратель"
+  - "Мак'Завоеватель"
+  - "Мак'Истребитель"
+  - "Мак'Погромщик"
+  - "Блоб'Разрушитель"
+  - "Блоб'Пожиратель"
+  - "Блоб'Завоеватель"
+  - "Блоб'Истребитель"
+  - "Блоб'Погромщик"
+  - "Гул'Поглотитель"
+  - "Гул'Похититель"
+  - "Гул'Захватитель"
+  - "Зил'Поглотитель"
+  - "Зил'Похититель"
+  - "Зил'Захватитель"
+
+- type: dataset
+  id: AbductoNamesPrefix
+  values:
+  - Гнусный
+  - Жестокий
+  - Кровожадный
+  - Злодейский
+  - Мастерский
+  - Беспощадный
+  - 
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointAbductor
+  components:
+  - type: GhostRole
+    name: Агент-похититель Абдукторов
+    description: Используя совершенные технологии, вы должны воровать экипаж и проводить ужасающие эксперименты над ними.
+    rules: ПРАВИЛА БЛА БЛА БЛА НЕ БУДЬ МУДАКОМ
+    mindRoles:
+    - MindRoleAbductor
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/signs.rsi
+        state: radiation
+
+- type: antag
+  id: Abductor
+  name: Агент-похититель Абдукторов
+  antagonist: true
+  setPreference: false
+  objective: roles-antag-space-ninja-objective
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleAbductor
+  name: Abductor Operative Role
+  components:
+  - type: MindRole
+    roleType: FreeAgent
+    exclusiveAntag: true
+    antagPrototype: Abductor
+  - type: TraitorRole
+
+- type: entity
+  parent: [BaseObjective, BaseSurviveObjective]
+  id: AbductorSurviveObjective
+  name: Выжить.
+  description: Вы должны остаться живым для успешного завершении миссии.
+  components:
+  - type: Objective
+    issuer: "[color=purple]Абдуктор[/color]"
+    difficulty: 0.5
+    icon:
+      sprite: /Textures/abductor/wonderprod.rsi
+      state: wonderprod_off
+
+- type: entity
+  parent: BaseLivingObjective
+  id: AbductorMainObjective
+  name: Провести операций.
+  description: Проведите 11 операций над членами экипажа.
+  components:
+  - type: StealCondition
+    stealGroup: AbductorSamples
+    minCollectionSize: 7
+    maxCollectionSize: 11
+    verifyMapExistence: false
+    objectiveNoOwnerText: Заполучить образцы.
+    objectiveText: Провести 11 операций.
+    descriptionText: Название
+    descriptionMultiplyText: Проведите несколько хирургических операций и заполучите с каждого живого гуманоида образец ДНК.
+  - type: Objective
+    difficulty: 0.5
+    issuer: "[color=purple]Абдуктор[/color]"
+    icon:
+      sprite: /Textures/abductor/organ.rsi
+      state: health
+
+- type: stealTargetGroup
+  id: AbductorSamples
+  name: образец
+  sprite:
+    sprite: /Textures/abductor/organ.rsi
+    state: health
+    
+- type: entity
+  name: Урист МакСерый
+  parent: BaseMobSpeciesOrganic
+  id: MobGreyPerson
+  components:
+  - type: Stamina
+    critThreshold: 250
+  - type: Muted
+  - type: Icon
+    sprite: /Textures/abductor/grey.rsi
+    state: full
+  - type: Body
+    prototype: Slime
+    requiredLegs: 2
+  - type: HumanoidAppearance
+    eyeColor: "#00000000"
+    skinColor: "#00000000"
+    species: Grey
+  - type: TypingIndicator
+    proto: slime
+  - type: Vocal
+    sounds:
+      Unsexed: MaleSlime
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Slime
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damageCap: 65
+    damage:
+      types:
+        Heat: -0.14
+      groups:
+        Brute: -0.14
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#4a2cf2"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
+  - type: Bloodstream
+    bloodReagent: Cryoxadone
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.025
+        Heat: 0.025
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 0.025
+    damageRecovery:
+      types:
+        Asphyxiation: -1.0
+    maxSaturation: 120
+  - type: IntrinsicRadioReceiver
+  - type: ActiveRadio
+    channels:
+    - Abductor
+  - type: TemperatureSpeed
+    thresholds:
+      301: 1
+  - type: Tag
+    tags:
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - Abductor
+    - AbductorMind
+  - type: CollectiveMind
+    defaultChannel: AbductorMind
+
+- type: species
+  id: Grey
+  name: серый
+  roundStart: false
+  prototype: MobGreyPerson
+  sprites: MobGreySprites
+  defaultSkinTone: "#FFFFFFFF"
+  defaultHumanSkinTone: 0
+  markingLimits: MobSlimeMarkingLimits
+  dollPrototype: MobGreyPerson
+  skinColoration: TintedHues 
+  sexes: [ Unsexed ]
+
+- type: speciesBaseSprites
+  id: MobGreySprites
+  sprites:
+    Head: MobGreyHead
+    Chest: MobGreyTorso
+    LArm: MobGreyLArm
+    RArm: MobGreyRArm
+    LHand: MobGreyLHand
+    RHand: MobGreyRHand
+    LLeg: MobGreyLLeg
+    RLeg: MobGreyRLeg
+    LFoot: MobGreyLFoot
+    RFoot: MobGreyRFoot
+
+- type: humanoidBaseSprite
+  id: MobGreyHead
+  baseSprite:
+    sprite: /Textures/abductor/grey.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobGreyHeadMale
+  baseSprite:
+    sprite: /Textures/abductor/grey.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobGreyHeadFemale
+  baseSprite:
+    sprite: /Textures/abductor/grey.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobGreyTorso
+  baseSprite:
+    sprite: /Textures/abductor/grey.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobGreyTorsoMale
+  baseSprite:
+    sprite: /Textures/abductor/grey.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobGreyTorsoFemale
+  baseSprite:
+    sprite: /Textures/abductor/grey.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobGreyLLeg
+  baseSprite:
+    sprite: /Textures/abductor/grey.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobGreyLArm
+  baseSprite:
+    sprite: /Textures/abductor/grey.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobGreyLHand
+  baseSprite:
+    sprite: /Textures/abductor/grey.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobGreyLFoot
+  baseSprite:
+    sprite: /Textures/abductor/grey.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobGreyRLeg
+  baseSprite:
+    sprite: /Textures/abductor/grey.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobGreyRArm
+  baseSprite:
+    sprite: /Textures/abductor/grey.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobGreyRHand
+  baseSprite:
+    sprite: /Textures/abductor/grey.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobGreyRFoot
+  baseSprite:
+    sprite: /Textures/abductor/grey.rsi
+    state: r_foot
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepLobotomize
+  name: Lobotomize patient
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SurgeryStep
+    tool:
+    - type: Drill
+    bodyAdd:
+    - type: OhioAccent
+    - type: RatvarianLanguage
+    - type: SlurredAccent
+    - type: EmitSoundOnDrop # КОМПАЧ ПУСТЫШКА 
+      sound:
+        path: /Textures/abductor/laser.ogg
+    duration: 5
+  - type: Sprite
+    sprite: _CorvaxNext/Objects/Specific/Medical/Surgery/drill.rsi
+    state: drill
+  - type: SurgeryStepEmoteEffect
+  - type: SurgeryDamageChangeEffect
+    damage:
+      types:
+        Piercing: 10
+
+- type: entity
+  name: ДНК сканнер
+  parent: [ BaseItem, BaseMajorContraband ]
+  id: WeaponGizmo
+  description: Основной источник заработка абдукторов. Позволяет сканировать прооперированное существо на наличие установленных органов.
+  components:
+  - type: Sprite
+    sprite: /Textures/abductor/gizmo.rsi
+    state: icon
+  - type: ActionOnInteract
+    actions:
+    - ActionGizmoCheck
+
+- type: entity
+  id: ActionGizmoCheck
+  components:
+  - type: EntityTargetAction
+    whitelist:
+      requireAll: true
+      components:
+        - EmitSoundOnDrop
+        - CreamPied
+        - AutoCryoSleepable
+    charges: 25
+    sound: /Textures/abductor/abductee.ogg
+    event: !type:ChangeComponentsSpellEvent
+      toRemove:
+      - AutoCryoSleepable
+      toAdd:
+      - type: SolutionRegeneration
+        solution: chemicals
+        duration: 99999
+        generated:
+          reagents:
+          - ReagentId: AbductorRewardSpawn
+            Quantity: 1
+          - ReagentId: Cryptobiolin
+            Quantity: 20
+
+- type: reagent
+  id: AbductorRewardSpawn
+  name: ":face_with_raised_eyebrow:"
+  group: Special
+  desc: ":Pepe_Gun:"
+  physicalDesc: золотое
+  flavor: смертельное
+  color: "#F1F336"
+  metabolisms:
+    Poison:
+      metabolismRate: 1
+      effects:
+      - !type:PopupMessage
+        visualType: Large
+        messages:
+        - "Вы чувствуете небольшое головокружение и лёгкую потерю памяти.."
+      - !type:CreateEntityReactionEffect
+          entity: SpawnReward
+          number: 1
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: SpawnReward
+  components:
+    - type: TriggerOnSpawn
+    - type: TimedDespawn
+      lifetime: 0.1
+    - type: SpawnOnTrigger 
+      proto: EffectFlashBluespace
+    - type: SpawnOnDespawn
+      prototype: RewardSpawnAnimationFunc
+
+- type: entity
+  id: DNAData
+  parent: BaseItem
+  name: очки ДНК
+  description: Исследовательская информация, собранная c определённого вида. Требуется для успешного завершения миссии.
+  components:
+    - type: Sprite
+      sprite: /Textures/abductor/dnadata.rsi
+      state: icon
+    - type: Item
+      size: Small
+    - type: Currency
+      price:
+        DNA: 2
+      
+- type: currency
+  id: DNA
+  displayName: ДНК
+  cash:
+    1: DNAData
+  canWithdraw: false
+
+- type: entity
+  id: DNACard
+  parent: BaseItem
+  name: карта ДНК
+  description: Исследовательская информация, собранная c определённого вида. Требуется для успешного завершения миссии.
+  components:
+    - type: Sprite
+      sprite: /Textures/abductor/dna.rsi
+      state: icon
+    - type: Item
+      size: Small
+    - type: Tag
+      tags:
+      - DNACard
+    - type: StealTarget
+      stealGroup: AbductorSamples
+
+- type: Tag
+  id: DNACard
+
+- type: entity
+  id: RewardSpawnAnimationFunc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnOnTrigger 
+    proto: DNAData
+  - type: TriggerOnSpawn
+  - type: TimedDespawn
+    lifetime: 0.1
+  - type: SpawnOnDespawn
+    prototype: DNACard
+
+
+- type: entity
+  name: Cybersun S-120
+  parent: BaseWeaponBattery
+  id: WeaponCybersunS120
+  description: Бластер пистолет-пулемёт, пускающий лазерные снаряды. Быстрая скорострельность и автоматическая перезарядка гарантирует приемущество в бою.
+  components:
+  - type: Sprite
+    sprite: /Textures/abductor/cybersun_s120.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-3
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Appearance
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: true
+  - type: StaticPrice
+    price: 100
+  - type: Gun
+    fireRate: 5
+    projectileSpeed: 35
+    soundGunshot:
+      path: /Textures/abductor/laser2.ogg
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletLaserDebuffed
+    fireCost: 50
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 20
+  - type: Item
+    size: Large
+
+- type: entity
+  id: BulletLaserDebuffed
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Heat: 8
+
+- type: entity
+  name: E-Sniper
+  parent: BaseItem
+  id: WeaponEsniper
+  description: Самозарядная снайперская винтовка, стреляющая зарядами ЭМИ. Идеально для отключения вражеских приборов.
+  components:
+  - type: Sprite
+    sprite: /Textures/abductor/esniper.rsi
+    layers:
+    - state: base
+    - state: active
+      visible: true
+      map: [ "acitve-icon" ]
+    - state: animation-icon
+      visible: false
+      map: [ "empty-icon" ]
+  - type: Appearance
+  - type: StaticPrice
+    price: 100
+  - type: Gun
+    fireRate: 1
+    projectileSpeed: 50
+    soundGunshot:
+      path: /Textures/abductor/beam_sniper.ogg
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: Item
+    size: Huge
+  - type: Wieldable
+    fireOnDropChance: 1
+  - type: GenericVisualizer
+    visuals:
+      enum.AmmoVisuals.HasAmmo:
+        empty-icon:
+          True: { visible: False }
+          False: { visible: True }
+        acitve-icon:
+          True: { visible: True }
+          False: { visible: False }
+  - type: BasicEntityAmmoProvider
+    proto: GrenadeEMP
+    capacity: 3
+    count: 3
+  - type: UseDelay
+    delay: 1
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 120
+    rechargeSound:
+      path: /Textures/abductor/laser_crank.ogg
+  - type: GunRequiresWield
+  - type: Clothing
+    quickEquip: true
+    slots:
+    - back
+    - suitstorage
+    
+- type: entity
+  parent: BaseSubdermalImplant
+  id: AbductorTrackingImplant
+  name: волновой передатчик информации
+  description: This implant has a tracking device attached to the suit sensor network, as well as a condition monitor for the Security radio channel.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      whitelist:
+        components:
+        - MobState # admeme implanting a chair with tracking implant needs to give the chair mobstate so it can die first
+    - type: SuitSensor
+      randomMode: false
+      controlsLocked: true
+      mode: SensorCords
+      activationContainer: "implant"
+    - type: DeviceNetwork
+      deviceNetId: Wireless
+      transmitFrequencyId: SuitSensor
+    - type: TriggerOnMobstateChange
+      mobState:
+      - Critical
+      - Dead
+    - type: Rattle
+      radioChannel: "Abductor"
+  
+- type: entity
+  parent: VendingMachine
+  id: AlienVendor
+  name: инопланетный раздатчик
+  description: Раздатчик с различным содержимым для успешного проведения операций.
+  components:
+  - type: VendingMachine
+    pack: AbductorInventory
+  - type: Sprite
+    sprite: /Textures/abductor/dispenser.rsi
+    state: dispenser
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#8e2a9b"
+  
+- type: vendingMachineInventory
+  id: AbductorInventory
+  startingInventory:
+    OrganAlienMindshock: 3
+    OrganAlienSpider: 3
+    OrganAlienSlime: 3
+    OrganAlienEMP: 3
+    OrganAlienPlasma: 3
+    ClothingBeltSurgicalBoardFilled: 1
+    HandheldHealthAnalyzer: 2
+    Defibrillator: 1
+  
+- type: entity
+  parent: ReinforcementRadio
+  id: ReinforcementRadioAbductor
+  name: телепорт подкрепления похитителя
+  description: Призывает помощника в выполнении поставленной миссии. Снаряжение более ограниченно, чем у основного похитителя.
+  components:
+  - type: GhostRole
+    name: Помощник похитителя Абдукторов
+    description: Агенту-похителю нужна помощь в выполнении миссии! Выполняйте любые приказы, которые вам поставят.
+    rules: ghost-role-information-syndicate-reinforcement-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanReinforcementAbductor
+
+- type: entity
+  parent: MobHumanAbductor
+  id: MobHumanReinforcementAbductor
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Loadout
+    prototypes: [AbductorGearReinforcement]
+  - type: AutoTraitor
+    profile: AbductorReinforcementRule
+
+- type: entity
+  parent: BaseGameRule
+  id: AbductorReinforcementRule
+  components:
+  - type: StationEvent
+    weight: 6
+    duration: null
+    earliestStart: 30
+    reoccurrenceDelay: 20
+    minimumPlayers: 30
+  - type: AntagLoadProfileRule
+    speciesOverride: Grey
+    speciesOverrideBlacklist:
+      - Resomi
+      - Vulpkanin
+      - Arachnid
+      - Diona
+      - Dwarf
+      - Human
+      - Moth
+      - Reptilian
+      - SlimePerson
+      - Vox
+  - type: AntagSelection
+    agentName: Агент-похититель Абдукторов
+    definitions:
+    - spawnerPrototype: SpawnPointAbductor
+      min: 1
+      max: 1
+      pickPlayer: false
+      components:
+      - type: AutoImplant
+        implants: [ AbductorTrackingImplant, AbductorTeleportImplant ]
+      - type: RandomMetadata
+        nameSegments:
+        - AbductoNamesPrefix
+        - AbductorName
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      - type: Skills # Corvax-Next-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
+      mindRoles:
+      - MindRoleAbductor
+      briefing:
+        text: Вы - инопланентный агент-похититель. Вашей основной целью является кража, вставка желез и последующее сканнирование существ.
+        color: Purple
+        sound: /Textures/abductor/ayylien.ogg
+
+- type: startingGear
+  id: AbductorGearReinforcement
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorGrey
+    shoes: ClothingShoesBootsJack
+    gloves: ClothingHandsGlovesColorGray
+    pocket1: AbductorCablecuffs
+    eyes: ClothingEyesGlassesHiddenSecurity
+    head: ClothingHeadHelmetAlien
+    back: ClothingBackpackSatchel
+    outerClothing: ClothingOuterVestArmorAlienStealthOnlyDebuffed
+  inhand:
+    - Wonderprod
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ClothingOuterVestArmorAlienStealthOnlyDebuffed
+  name: стелс-броня
+  description: Супертехнологическая защита, созданная специально под действия в условия похищения существ.
+  components:
+    - type: Sprite
+      sprite: /Textures/abductor/armor.rsi/
+      layers:
+      - state: icon
+        map: [ "enum.ToggleVisuals.Layer" ]
+    - type: Clothing
+      sprite: /Textures/abductor/armor.rsi/
+      equipDelay: 3
+      unequipDelay: 3
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.7
+          Slash: 0.7
+          Piercing: 0.7
+          Heat: 0.8
+
+- type: collectiveMind
+  id: Abductormind
+  name: Телепатия
+  keycode: 'а'
+  color: "#d600bd"
+  requiredTags:
+  - AbductorMind
