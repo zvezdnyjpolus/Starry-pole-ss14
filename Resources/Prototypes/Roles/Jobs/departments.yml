@@ -116,6 +116,7 @@
   - Pilot # Corvax-Pilot
   - Detective
   - Warden
+  - Brigmedic # Corvax-Brigmedic
 
 - type: department
   id: Science

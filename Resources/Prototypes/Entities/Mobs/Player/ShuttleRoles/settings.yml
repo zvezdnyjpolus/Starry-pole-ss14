@@ -641,6 +641,7 @@
       - Surgery
       - MedicalEquipment
       - Butchering
+      nameFormat: name-format-standard
 
 - type: randomHumanoidSettings
   id: ChallengeVictimChiefEngineer
@@ -668,6 +669,7 @@
       - Surgery
       - MedicalEquipment
       - Butchering
+      nameFormat: name-format-standard
 
 - type: randomHumanoidSettings
   id: ChallengeVictimCMO
@@ -695,6 +697,7 @@
       - Surgery
       - MedicalEquipment
       - Butchering
+      nameFormat: name-format-standard
 
 - type: randomHumanoidSettings
   id: ChallengeVictimHeadOfPersonnel
@@ -722,6 +725,7 @@
       - Surgery
       - MedicalEquipment
       - Butchering
+      nameFormat: name-format-standard
 
 - type: randomHumanoidSettings
   id: ChallengeVictimHeadOfSecurity
@@ -749,6 +753,7 @@
       - Surgery
       - MedicalEquipment
       - Butchering
+      nameFormat: name-format-standard
 
 - type: randomHumanoidSettings
   id: ChallengeVictimResearchDirector
@@ -776,6 +781,7 @@
       - Surgery
       - MedicalEquipment
       - Butchering
+      nameFormat: name-format-standard
 
 - type: randomHumanoidSettings
   id: ChallengeVictimQuartermaster
@@ -803,6 +809,7 @@
       - Surgery
       - MedicalEquipment
       - Butchering
+      nameFormat: name-format-standard
 
 # Security
 # Following use EventHumanoidMindShielded since they are heads and probably should have mindshields
@@ -835,6 +842,7 @@
       - Surgery
       - MedicalEquipment
       - Butchering
+      nameFormat: name-format-standard
 
 # Engineering
 
