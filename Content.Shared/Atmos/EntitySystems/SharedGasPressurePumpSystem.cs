@@ -12,13 +12,10 @@ namespace Content.Shared.Atmos.EntitySystems;
 
 public abstract class SharedGasPressurePumpSystem : EntitySystem
 {
-    [Dependency] private   readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private   readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private   readonly SharedPowerReceiverSystem _receiver = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedPowerReceiverSystem _receiver = default!;
     [Dependency] protected readonly SharedUserInterfaceSystem UserInterfaceSystem = default!;
-
-    // TODO: Check enabled for activatableUI
-    // TODO: Add activatableUI to it.
 
     public override void Initialize()
     {
@@ -32,7 +29,7 @@ public abstract class SharedGasPressurePumpSystem : EntitySystem
         SubscribeLocalEvent<GasPressurePumpComponent, AtmosDeviceDisabledEvent>(OnPumpLeaveAtmosphere);
         SubscribeLocalEvent<GasPressurePumpComponent, ExaminedEvent>(OnExamined);
 
-        SubscribeLocalEvent<GasPressurePumpComponent, MapInitEvent>(OnMapInit); // Corvax-Next-AutoPipes
+        SubscribeLocalEvent<GasPressurePumpComponent, MapInitEvent>(OnMapInit);
     }
 
     private void OnExamined(Entity<GasPressurePumpComponent> ent, ref ExaminedEvent args)
@@ -42,7 +39,7 @@ public abstract class SharedGasPressurePumpSystem : EntitySystem
 
         if (Loc.TryGetString("gas-pressure-pump-system-examined",
                 out var str,
-                ("statusColor", "lightblue"), // TODO: change with pressure?
+                ("statusColor", "lightblue"),
                 ("pressure", ent.Comp.TargetPressure)
             ))
         {
@@ -103,17 +100,15 @@ public abstract class SharedGasPressurePumpSystem : EntitySystem
     {
     }
 
-    // Corvax-Next-AutoPipes-Start
-    private void OnMapInit(EntityUid uid, GasPressurePumpComponent pump, MapInitEvent args)
+    private void OnMapInit(Entity<GasPressurePumpComponent> ent, ref MapInitEvent args)
     {
-        if (!pump.StartOnMapInit)
+        if (!ent.Comp.StartOnMapInit)
             return;
 
-        pump.Enabled = true;
-        UpdateAppearance(uid, pump);
+        ent.Comp.Enabled = true;
+        UpdateAppearance(ent);
 
-        Dirty(uid, pump);
-        UserInterfaceSystem.CloseUi(uid, GasPressurePumpUiKey.Key);
+        Dirty(ent);
+        UserInterfaceSystem.CloseUi(ent.Owner, GasPressurePumpUiKey.Key);
     }
-    // Corvax-Next-AutoPipes-End
 }
