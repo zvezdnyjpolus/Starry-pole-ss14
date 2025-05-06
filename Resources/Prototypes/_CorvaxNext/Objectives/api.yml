@@ -7,9 +7,8 @@
       issuer: objective-issuer-api
       difficulty: 1
     - type: RoleRequirement
-      roles:
-        mindRoles:
-          - ApiRole
+      mindRoles:
+        - ApiRole
 
 - type: entity
   abstract: true
