@@ -8,15 +8,6 @@
   - TelescopicBaton
   - Flash
 
-# Security
-- type: loadoutGroup
-  id: BrigmedicHead
-  name: loadout-group-brigmedic-head
-  minLimit: 0
-  loadouts:
-  - BrigmedicSecurityBeret
-  - BrigmedicBeret
-
 - type: loadoutGroup
   id: BrigmedicJumpsuit
   name: loadout-group-brigmedic-jumpsuit
