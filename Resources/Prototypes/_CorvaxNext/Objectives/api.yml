@@ -21,13 +21,13 @@
     descriptionText: objective-condition-api-description
     checkStealAreas: true
 
-- type: entity
-  parent: BaseApiStealObjective
-  id: AiStealObjective
-  components:
-  - type: StealCondition
-    stealGroup: Ai
-    checkHasAi: true
+#- type: entity
+#  parent: BaseApiStealObjective
+#  id: AiStealObjective
+#  components:
+#  - type: StealCondition
+#    stealGroup: Ai
+#    checkHasAi: true
 
 - type: entity
   parent: [ BaseApiObjective, BaseLivingObjective ]
