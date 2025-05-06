@@ -7,22 +7,9 @@
     objectiveCount: 4
     objectivePrototypes: [ VoxRaidersSurviveObjective ]
   - type: RandomMetadata
-    nameSegments:
-    - operationPrefix
-    - operationSuffix
   - type: RuleGrids
   - type: AntagLoadProfileRule
     speciesOverride: Vox
-    speciesOverrideBlacklist:
-    - Resomi
-    - Vulpkanin
-    - Arachnid
-    - Diona
-    - Dwarf
-    - Human
-    - Moth
-    - Reptilian
-    - SlimePerson
   - type: GameRule
     minPlayers: 20
   - type: LoadMapRule
@@ -37,8 +24,7 @@
       components:
       - type: RandomMetadata
         nameSegments:
-        - nukeops-role-commander
-        - SyndicateNamesElite
+        - nukeops-role-operator
       - type: NpcFactionMember
         factions: [ Syndicate ]
       - type: Skills
@@ -62,7 +48,6 @@
       - type: RandomMetadata
         nameSegments:
         - nukeops-role-operator
-        - SyndicateNamesNormal
       - type: NpcFactionMember
         factions: [ Syndicate ]
       - type: Skills
@@ -83,6 +68,6 @@
   parent: BaseGameRule
   components:
   - type: BattleRoyaleRule
-    gear: BattleRoyaleGear 
+    gear: BattleRoyaleGear
     roundEndDelay: 10
   - type: PointManager
