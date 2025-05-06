@@ -7,8 +7,8 @@
     difficulty: 1.5
     issuer: objective-issuer-heretic
   - type: RoleRequirement
-    mindRoles:
-    - HereticRole
+    roles:
+      - HereticRole
 
 - type: entity
   parent: BaseHereticObjective
