@@ -11,7 +11,7 @@
       sprite: _Goobstation/Blob/Mobs/blob.rsi
       state: blob_nuke_overlay
   - type: RoleRequirement
-    mindRoles:
+    roles:
     - BlobRole
 
 - type: entity
