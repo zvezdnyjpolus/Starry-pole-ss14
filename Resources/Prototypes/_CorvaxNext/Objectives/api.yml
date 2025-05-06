@@ -7,7 +7,7 @@
       issuer: objective-issuer-api
       difficulty: 1
     - type: RoleRequirement
-      mindRoles:
+      roles:
         - ApiRole
 
 - type: entity
@@ -39,3 +39,6 @@
         sprite: Structures/Furniture/chairs.rsi
         state: shuttle
     - type: EscapeShuttleCondition
+    - type: RoleRequirement
+      roles:
+        - ApiRole
