@@ -4,22 +4,28 @@ using Content.Shared.IgnitionSource.Components;
 
 namespace Content.Shared.IgnitionSource.EntitySystems;
 
-public sealed class MatchboxSystem : EntitySystem
+/// <summary>
+/// Handling shared logic for matchboxes.
+/// </summary>
+public abstract class SharedMatchboxSystem : EntitySystem
 {
-    [Dependency] private readonly MatchstickSystem _match = default!;
+    [Dependency] protected readonly MatchstickSystem Matchstick = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MatchboxComponent, InteractUsingEvent>(OnInteractUsing, before: [ typeof(SharedStorageSystem) ]);
+        // Event subscription moved to derived classes to avoid duplication
     }
 
-    private void OnInteractUsing(Entity<MatchboxComponent> ent, ref InteractUsingEvent args)
+    /// <summary>
+    /// Try to ignite a matchstick using a matchbox.
+    /// </summary>
+    protected void OnInteractUsing(Entity<MatchboxComponent> ent, ref InteractUsingEvent args)
     {
         if (args.Handled || !TryComp<MatchstickComponent>(args.Used, out var matchstick))
             return;
 
-        args.Handled = _match.TryIgnite((args.Used, matchstick), args.User);
+        args.Handled = Matchstick.TryIgnite((args.Used, matchstick), args.User);
     }
 }
