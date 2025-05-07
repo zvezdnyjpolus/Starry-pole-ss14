@@ -23,8 +23,6 @@
       startingGear: VoxRaidersCommanderGear
       components:
       - type: RandomMetadata
-        nameSegments:
-        - nukeops-role-operator
       - type: NpcFactionMember
         factions: [ Syndicate ]
       - type: Skills

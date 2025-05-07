@@ -641,7 +641,6 @@
       - Surgery
       - MedicalEquipment
       - Butchering
-      nameFormat: name-format-standard
 
 - type: randomHumanoidSettings
   id: ChallengeVictimChiefEngineer
