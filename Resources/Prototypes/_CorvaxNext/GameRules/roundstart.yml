@@ -43,9 +43,6 @@
       max: 4
       startingGear: VoxRaidersOperativeGear
       components:
-      - type: RandomMetadata
-        nameSegments:
-        - nukeops-role-operator
       - type: NpcFactionMember
         factions: [ Syndicate ]
       - type: Skills
