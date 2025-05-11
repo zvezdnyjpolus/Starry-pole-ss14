@@ -115,7 +115,7 @@
       sprite: Corvax/Mobs/Species/Tajaran/parts.rsi
       state: "head_m"
     - type: Icon
-      sprite: CCorvax/Mobs/Species/Tajaran/parts.rsi
+      sprite: Corvax/Mobs/Species/Tajaran/parts.rsi
       state: "head_m"
     - type: BodyPart
       partType: Head
@@ -252,7 +252,7 @@
       sprite: Corvax/Mobs/Species/Tajaran/parts.rsi
       state: "r_foot"
     - type: Icon
-      sprite: Corvax/Mobs/Species/Vulpkanin/parts.rsi
+      sprite: Corvax/Mobs/Species/Tajaran/parts.rsi
       state: "r_foot"
     - type: BodyPart
       partType: Foot
