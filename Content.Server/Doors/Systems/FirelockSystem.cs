@@ -1,6 +1,8 @@
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.Atmos.Monitor.Components;
 using Content.Server.Atmos.Monitor.Systems;
+using Content.Server.DeviceNetwork.Components;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Shuttles.Components;
@@ -11,6 +13,7 @@ using Content.Shared.Doors.Systems;
 using Content.Shared.Power;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Server.Doors.Systems
 {
@@ -53,10 +56,19 @@ namespace Content.Server.Doors.Systems
             var appearanceQuery = GetEntityQuery<AppearanceComponent>();
             var xformQuery = GetEntityQuery<TransformComponent>();
             var pointLightQuery = GetEntityQuery<PointLightComponent>();
+            var list = GetEntityQuery<DeviceNetworkComponent>();
 
             var query = EntityQueryEnumerator<FirelockComponent, DoorComponent>();
             while (query.MoveNext(out var uid, out var firelock, out var door))
             {
+                if (door.State == DoorState.Open && list.TryGetComponent(uid, out var dlist) && this.IsPowered(uid, EntityManager))
+                {
+                    if (this.TryGetHighestAlert(uid, out var alarm, dlist.DeviceLists))
+                    {
+                        if (alarm == AtmosAlarmType.Danger) EmergencyPressureStop(uid, firelock, door);//RaiseLocalEvent(uid, new AtmosAlarmEvent(alarm), true);
+                    }
+                }
+
                 // only bother to check pressure on doors that are some variation of closed.
                 if (door.State != DoorState.Closed
                     && door.State != DoorState.Welded
@@ -81,6 +93,19 @@ namespace Content.Server.Doors.Systems
                     }
                 }
             }
+        }
+
+        public bool TryGetHighestAlert(EntityUid uid, [NotNullWhen(true)] out AtmosAlarmType? alarm, HashSet<EntityUid> setobj)
+        {
+            alarm = null;
+            var alarmable = GetEntityQuery<AtmosAlarmableComponent>();
+            foreach (EntityUid i in setobj)
+            {
+                if (!alarmable.TryGetComponent(i, out var talarmable)) continue;
+                alarm = alarm == null || alarm < talarmable.LastAlarmState ? talarmable.LastAlarmState : alarm;
+            }
+            if (alarm == null) return false;
+            return alarm != null;
         }
 
         private void OnAtmosAlarm(EntityUid uid, FirelockComponent component, AtmosAlarmEvent args)
