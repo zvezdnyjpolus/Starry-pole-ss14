@@ -691,8 +691,8 @@ public sealed class AirAlarmSystem : EntitySystem
                 SyncAllSensors(uid);
             }
 
-            var query = EntityQueryEnumerator<AirAlarmComponent, AtmosAlarmableComponent, DeviceListComponent>();
-            while (query.MoveNext(out var uid, out var airAlarm, out var atmosAlarmable, out var deviceList))
+            var query = EntityQueryEnumerator<AtmosAlarmableComponent, DeviceListComponent>();
+            while (query.MoveNext(out var uid, out var atmosAlarmable, out var deviceList))
             {
                 if (atmosAlarmable.LastAlarmState == AtmosAlarmType.Danger && this.IsPowered(uid, EntityManager))
                 {
