@@ -8,12 +8,16 @@ using Content.Server.Power.EntitySystems;
 using Content.Server.Shuttles.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Monitor;
+using Content.Shared.Doors;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Content.Shared.Power;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Timing;
+using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
 namespace Content.Server.Doors.Systems
 {
@@ -24,6 +28,8 @@ namespace Content.Server.Doors.Systems
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly SharedMapSystem _mapping = default!;
         [Dependency] private readonly PointLightSystem _pointLight = default!;
+
+        [Dependency] private readonly IGameTiming _gameTiming = default!;
 
         private const int UpdateInterval = 30;
         private int _accumulatedTicks;
@@ -61,11 +67,20 @@ namespace Content.Server.Doors.Systems
             var query = EntityQueryEnumerator<FirelockComponent, DoorComponent>();
             while (query.MoveNext(out var uid, out var firelock, out var door))
             {
-                if (door.State == DoorState.Open && list.TryGetComponent(uid, out var dlist) && this.IsPowered(uid, EntityManager))
+                if (door.State == DoorState.Open && list.TryGetComponent(uid, out var dlist) && (firelock.EmergencyCloseCooldown == null
+            || _gameTiming.CurTime < firelock.EmergencyCloseCooldown) && this.IsPowered(uid, EntityManager))// корвакс - проверка шлюзами тревоги для закрытия
                 {
                     if (this.TryGetHighestAlert(uid, out var alarm, dlist.DeviceLists))
                     {
-                        if (alarm == AtmosAlarmType.Danger) EmergencyPressureStop(uid, firelock, door);//RaiseLocalEvent(uid, new AtmosAlarmEvent(alarm), true);
+                        if (alarm == AtmosAlarmType.Danger) //_doorSystem.CanClose(uid, door) проигнорирован и переписан изза гарантии DoorState.Open и выборки
+                        {
+                            var ev = new BeforeDoorClosedEvent(door.PerformCollisionCheck, false);
+                            RaiseLocalEvent(uid, ev);
+                            if (ev.Cancelled) continue;
+                            if (!ev.PerformCollisionCheck || !_doorSystem.GetColliding(uid).Any()){
+                                _doorSystem.StartClosing(uid, door); // методы были декапсулированы для сокращения проверок, выглядит громоздко, зато эффективно
+                            }
+                        }
                     }
                 }
 
@@ -104,7 +119,6 @@ namespace Content.Server.Doors.Systems
                 if (!alarmable.TryGetComponent(i, out var talarmable)) continue;
                 alarm = alarm == null || alarm < talarmable.LastAlarmState ? talarmable.LastAlarmState : alarm;
             }
-            if (alarm == null) return false;
             return alarm != null;
         }
 
