@@ -40,8 +40,9 @@ public abstract class SharedFirelockSystem : EntitySystem
             firelock.EmergencyCloseCooldown = _gameTiming.CurTime + firelock.EmergencyCloseCooldownDuration;
             var ev = new BeforeDoorClosedEvent(door.PerformCollisionCheck, false);
             RaiseLocalEvent(uid, ev);
-            if (!ev.Cancelled || !ev.PerformCollisionCheck || !_doorSystem.GetColliding(uid).Any())
+            if (!ev.Cancelled && ev.PerformCollisionCheck && !_doorSystem.GetColliding(uid).Any())
             {
+
                 _doorSystem.StartClosing(uid, door);
             }
         }
