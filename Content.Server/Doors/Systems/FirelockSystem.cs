@@ -1,9 +1,7 @@
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Atmos.Monitor.Components;
 using Content.Server.Atmos.Monitor.Systems;
 using Content.Server.DeviceNetwork.Components;
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Shuttles.Components;
 using Content.Shared.Atmos;
@@ -15,8 +13,6 @@ using Content.Shared.Power;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
-using System;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace Content.Server.Doors.Systems
@@ -28,7 +24,6 @@ namespace Content.Server.Doors.Systems
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly SharedMapSystem _mapping = default!;
         [Dependency] private readonly PointLightSystem _pointLight = default!;
-
         [Dependency] private readonly IGameTiming _gameTiming = default!;
 
         private const int UpdateInterval = 30;
@@ -67,26 +62,7 @@ namespace Content.Server.Doors.Systems
             var query = EntityQueryEnumerator<FirelockComponent, DoorComponent>();
             while (query.MoveNext(out var uid, out var firelock, out var door))
             {
-                if (door.State == DoorState.Open && list.TryGetComponent(uid, out var dlist) && (firelock.EmergencyCloseCooldown == null
-            || _gameTiming.CurTime > firelock.EmergencyCloseCooldown) && this.IsPowered(uid, EntityManager))// корвакс - проверка шлюзами тревоги для закрытия
-                {
-                    if (this.TryGetHighestAlert(uid, out var alarm, dlist.DeviceLists))
-                    {
-                        if (alarm == AtmosAlarmType.Danger) //_doorSystem.CanClose(uid, door) проигнорирован и переписан изза гарантии DoorState.Open и выборки
-                        {
-                            firelock.EmergencyCloseCooldown = _gameTiming.CurTime + firelock.EmergencyCloseCooldownDuration; //чистейший проеб офов превращаем в оптимизацию
-                            var ev = new BeforeDoorClosedEvent(door.PerformCollisionCheck, false);
-                            RaiseLocalEvent(uid, ev);
-                            if (ev.Cancelled) continue;
-                            if (!ev.PerformCollisionCheck || !_doorSystem.GetColliding(uid).Any()){
-                                _doorSystem.StartClosing(uid, door); // методы были декапсулированы для сокращения проверок, выглядит громоздко, зато эффективно
-                            }
-                        }
-                    }
-                }
-
-                // only bother to check pressure on doors that are some variation of closed.
-                if (door.State != DoorState.Closed
+                if (door.State != DoorState.Closed // only bother to check pressure on doors that are some variation of closed.
                     && door.State != DoorState.Welded
                     && door.State != DoorState.Denying)
                 {
@@ -111,16 +87,18 @@ namespace Content.Server.Doors.Systems
             }
         }
 
-        public bool TryGetHighestAlert(EntityUid uid, [NotNullWhen(true)] out AtmosAlarmType? alarm, HashSet<EntityUid> setobj)
+        public void UrgentClosure(EntityUid uid, DoorComponent door, FirelockComponent firelock)
         {
-            alarm = null;
-            var alarmable = GetEntityQuery<AtmosAlarmableComponent>();
-            foreach (EntityUid i in setobj)
+            if (firelock.EmergencyCloseCooldown == null || _gameTiming.CurTime > firelock.EmergencyCloseCooldown)
             {
-                if (!alarmable.TryGetComponent(i, out var talarmable)) continue;
-                alarm = alarm == null || alarm < talarmable.LastAlarmState ? talarmable.LastAlarmState : alarm;
+                firelock.EmergencyCloseCooldown = _gameTiming.CurTime + firelock.EmergencyCloseCooldownDuration;
+                var ev = new BeforeDoorClosedEvent(door.PerformCollisionCheck, false);
+                RaiseLocalEvent(uid, ev);
+                if (!ev.Cancelled || !ev.PerformCollisionCheck || !_doorSystem.GetColliding(uid).Any())
+                {
+                    _doorSystem.StartClosing(uid, door);
+                }
             }
-            return alarm != null;
         }
 
         private void OnAtmosAlarm(EntityUid uid, FirelockComponent component, AtmosAlarmEvent args)
