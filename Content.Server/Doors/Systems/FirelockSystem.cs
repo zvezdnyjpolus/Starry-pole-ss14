@@ -68,12 +68,13 @@ namespace Content.Server.Doors.Systems
             while (query.MoveNext(out var uid, out var firelock, out var door))
             {
                 if (door.State == DoorState.Open && list.TryGetComponent(uid, out var dlist) && (firelock.EmergencyCloseCooldown == null
-            || _gameTiming.CurTime < firelock.EmergencyCloseCooldown) && this.IsPowered(uid, EntityManager))// корвакс - проверка шлюзами тревоги для закрытия
+            || _gameTiming.CurTime > firelock.EmergencyCloseCooldown) && this.IsPowered(uid, EntityManager))// корвакс - проверка шлюзами тревоги для закрытия
                 {
                     if (this.TryGetHighestAlert(uid, out var alarm, dlist.DeviceLists))
                     {
                         if (alarm == AtmosAlarmType.Danger) //_doorSystem.CanClose(uid, door) проигнорирован и переписан изза гарантии DoorState.Open и выборки
                         {
+                            firelock.EmergencyCloseCooldown = _gameTiming.CurTime + firelock.EmergencyCloseCooldownDuration; //чистейший проеб офов превращаем в оптимизацию
                             var ev = new BeforeDoorClosedEvent(door.PerformCollisionCheck, false);
                             RaiseLocalEvent(uid, ev);
                             if (ev.Cancelled) continue;
