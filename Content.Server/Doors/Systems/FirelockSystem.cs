@@ -6,7 +6,6 @@ using Content.Server.Power.EntitySystems;
 using Content.Server.Shuttles.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Monitor;
-using Content.Shared.Doors;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Content.Shared.Power;
@@ -24,7 +23,6 @@ namespace Content.Server.Doors.Systems
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly SharedMapSystem _mapping = default!;
         [Dependency] private readonly PointLightSystem _pointLight = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
 
         private const int UpdateInterval = 30;
         private int _accumulatedTicks;
@@ -83,20 +81,6 @@ namespace Content.Server.Doors.Systems
                     {
                         _pointLight.SetEnabled(uid, fire | pressure, pointLight);
                     }
-                }
-            }
-        }
-
-        public void UrgentClosure(EntityUid uid, DoorComponent door, FirelockComponent firelock)
-        {
-            if (firelock.EmergencyCloseCooldown == null || _gameTiming.CurTime > firelock.EmergencyCloseCooldown)
-            {
-                firelock.EmergencyCloseCooldown = _gameTiming.CurTime + firelock.EmergencyCloseCooldownDuration;
-                var ev = new BeforeDoorClosedEvent(door.PerformCollisionCheck, false);
-                RaiseLocalEvent(uid, ev);
-                if (!ev.Cancelled || !ev.PerformCollisionCheck || !_doorSystem.GetColliding(uid).Any())
-                {
-                    _doorSystem.StartClosing(uid, door);
                 }
             }
         }

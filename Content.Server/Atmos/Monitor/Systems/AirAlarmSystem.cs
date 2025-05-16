@@ -692,7 +692,7 @@ public sealed class AirAlarmSystem : EntitySystem
             }
 
             var query = EntityQueryEnumerator<AtmosAlarmableComponent, DeviceListComponent>();
-            while (query.MoveNext(out var uid, out var atmosAlarmable, out var deviceList))
+            while (query.MoveNext(out var uid, out var atmosAlarmable, out var deviceList)) //closing undesirably open airlocks
             {
                 if (atmosAlarmable.LastAlarmState == AtmosAlarmType.Danger && this.IsPowered(uid, EntityManager))
                 {
