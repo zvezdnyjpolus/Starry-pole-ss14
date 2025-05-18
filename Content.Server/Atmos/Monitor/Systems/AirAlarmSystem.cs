@@ -37,7 +37,7 @@ namespace Content.Server.Atmos.Monitor.Systems;
 // data key. In response, a packet will be transmitted
 // with the response type as its command, and the
 // response data in its data key.
-public sealed class AirAlarmSystem : EntitySystem
+public sealed partial class AirAlarmSystem : EntitySystem
 {
     [Dependency] private readonly AccessReaderSystem _access = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
@@ -691,21 +691,8 @@ public sealed class AirAlarmSystem : EntitySystem
                 SyncAllSensors(uid);
             }
 
-            var query = EntityQueryEnumerator<AtmosAlarmableComponent, DeviceListComponent>();
-            while (query.MoveNext(out var uid, out var atmosAlarmable, out var deviceList)) //closing undesirably open airlocks
-            {
-                if (atmosAlarmable.LastAlarmState == AtmosAlarmType.Danger && this.IsPowered(uid, EntityManager))
-                {
-                    var indoor = GetEntityQuery<DoorComponent>();
-                    var infirelock = GetEntityQuery<FirelockComponent>();
-                    foreach (EntityUid i in deviceList.Devices)
-                    {
-                        if (!indoor.TryGetComponent(i, out var nouse) && !infirelock.TryGetComponent(i, out var nouse2)) continue;
-                        var door = indoor.GetComponent(i); var firelock = infirelock.GetComponent(i);
-                        if (door.State == DoorState.Open && this.IsPowered(i, EntityManager)) _firelock.UrgentClosure(i, door, firelock);
-                    }
-                }
-            }
+            var query = EntityQueryEnumerator<AtmosAlarmableComponent, DeviceListComponent>();//Corvax NEXT выборка возд. сигналок и т.п.
+            AlarmforOpenFirelocks(query);//закрытие открытых пожарных шлюзов
         }
     }
 }
