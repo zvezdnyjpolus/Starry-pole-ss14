@@ -1,7 +1,6 @@
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Monitor.Systems;
-using Content.Server.DeviceNetwork.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Shuttles.Components;
 using Content.Shared.Atmos;
@@ -11,8 +10,6 @@ using Content.Shared.Doors.Systems;
 using Content.Shared.Power;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Timing;
-using System.Linq;
 
 namespace Content.Server.Doors.Systems
 {
@@ -55,12 +52,12 @@ namespace Content.Server.Doors.Systems
             var appearanceQuery = GetEntityQuery<AppearanceComponent>();
             var xformQuery = GetEntityQuery<TransformComponent>();
             var pointLightQuery = GetEntityQuery<PointLightComponent>();
-            var list = GetEntityQuery<DeviceNetworkComponent>();
 
             var query = EntityQueryEnumerator<FirelockComponent, DoorComponent>();
             while (query.MoveNext(out var uid, out var firelock, out var door))
             {
-                if (door.State != DoorState.Closed // only bother to check pressure on doors that are some variation of closed.
+                // only bother to check pressure on doors that are some variation of closed.
+                if (door.State != DoorState.Closed 
                     && door.State != DoorState.Welded
                     && door.State != DoorState.Denying)
                 {
