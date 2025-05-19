@@ -690,9 +690,9 @@ public sealed partial class AirAlarmSystem : EntitySystem
             {
                 SyncAllSensors(uid);
             }
-
-            var query = EntityQueryEnumerator<AtmosAlarmableComponent, DeviceListComponent>();//Corvax NEXT выборка возд. сигналок и т.п.
-            AlarmforOpenFirelocks(query);//закрытие открытых пожарных шлюзов
+            //Corvax-Next-Start
+            AlarmforOpenFirelocks(EntityQueryEnumerator<AtmosAlarmableComponent, DeviceListComponent>());//closing open fire locks
+            // Corvax-Next-End
         }
     }
 }

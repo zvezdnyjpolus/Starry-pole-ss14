@@ -32,9 +32,8 @@ public abstract class SharedFirelockSystem : EntitySystem
 
         SubscribeLocalEvent<FirelockComponent, ExaminedEvent>(OnExamined);
     }
-
-    public void UrgentClosure(EntityUid uid, DoorComponent door, FirelockComponent firelock) //(Corvax NEXT)
-    //менее безопасная, декапсулированная версия EmergencyPressureStop, но с меньшим числом бесполезных перепропроверок и работающей коллизией(в отличии от)
+    //Corvax-Next-Start
+    public void UrgentClosure(EntityUid uid, DoorComponent door, FirelockComponent firelock)//a less secure, decapsulated version of EmergencyPressureStop
     {
         if (firelock.EmergencyCloseCooldown == null || _gameTiming.CurTime > firelock.EmergencyCloseCooldown)
         {
@@ -47,7 +46,7 @@ public abstract class SharedFirelockSystem : EntitySystem
             }
         }
     }
-
+    //Corvax-Next-end
     public bool EmergencyPressureStop(EntityUid uid, FirelockComponent? firelock = null, DoorComponent? door = null)
     {
         if (!Resolve(uid, ref firelock, ref door))
