@@ -49,7 +49,6 @@ public sealed partial class AirAlarmSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
 
-    [Dependency] private readonly FirelockSystem _firelock = default!;
 
     #region Device Network API
 
@@ -690,9 +689,9 @@ public sealed partial class AirAlarmSystem : EntitySystem
             {
                 SyncAllSensors(uid);
             }
-
-            var query = EntityQueryEnumerator<AtmosAlarmableComponent, DeviceListComponent>();//Corvax NEXT выборка возд. сигналок и т.п.
-            AlarmforOpenFirelocks(query);//закрытие открытых пожарных шлюзов
+            //Corvax-Next-Start
+            AlarmforOpenFirelocks();//closing open fire locks
+            // Corvax-Next-End
         }
     }
 }

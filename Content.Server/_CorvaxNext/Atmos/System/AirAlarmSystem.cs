@@ -9,8 +9,10 @@ namespace Content.Server.Atmos.Monitor.Systems
 {
     public partial class AirAlarmSystem : EntitySystem
     {
-        public void AlarmforOpenFirelocks(EntityQueryEnumerator<AtmosAlarmableComponent, DeviceListComponent> query)
+        [Dependency] private readonly FirelockSystem _firelock = default!;
+        public void AlarmforOpenFirelocks()
         {
+            var query = EntityQueryEnumerator<AtmosAlarmableComponent, DeviceListComponent>();
             while (query.MoveNext(out var uid, out var atmosAlarmable, out var deviceList))
             {
                 if (atmosAlarmable.LastAlarmState == AtmosAlarmType.Danger && this.IsPowered(uid, EntityManager))
