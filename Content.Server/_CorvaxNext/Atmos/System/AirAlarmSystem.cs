@@ -19,11 +19,13 @@ namespace Content.Server.Atmos.Monitor.Systems
                 {
                     var indoor = GetEntityQuery<DoorComponent>();
                     var infirelock = GetEntityQuery<FirelockComponent>();
-                    foreach (EntityUid i in deviceList.Devices)
+                    foreach (var i in deviceList.Devices)
                     {
-                        if (!indoor.TryGetComponent(i, out var nouse) && !infirelock.TryGetComponent(i, out var nouse2)) continue;
+                        if (!indoor.TryGetComponent(i, out var nouse) && !infirelock.TryGetComponent(i, out var nouse2))
+                            continue;
                         var door = indoor.GetComponent(i); var firelock = infirelock.GetComponent(i);
-                        if (door.State == DoorState.Open && this.IsPowered(i, EntityManager)) _firelock.UrgentClosure(i, door, firelock);
+                        if (door.State == DoorState.Open && this.IsPowered(i, EntityManager))
+                            _firelock.UrgentClosure(i, door, firelock);
                     }
                 }
             }
