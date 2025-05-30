@@ -1,0 +1,15 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Resprite Nanotrasen.png(CorvaxNext) by JrInventor05(ds qwerty05555)",
+
+    "size": {
+        "x": 8,
+        "y": 8
+    },
+    "states": [
+        {
+            "name": "DeathSquad"
+        }
+    ]
+}

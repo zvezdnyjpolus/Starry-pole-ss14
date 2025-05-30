@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by JrInventor05(ds: qwerty05555), it's based on ChemicalMedipen.",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+      {
+        "name": "medipen-ds"
+      },
+      {
+        "name": "medipen-ds_empty"
+      }
+    ]
+  }

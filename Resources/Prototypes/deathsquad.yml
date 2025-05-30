@@ -1,0 +1,2018 @@
+- type: entity
+  parent: Paper
+  id: DeSqDocumentTango
+  suffix:  
+  name: Постановление ДСО-034-003-8563
+  components:
+  - type: Paper
+    stampState: paper_stamp-qm
+    stampedBy:
+    - stampedName: ДЕПАРТАМЕНТ СО
+      stampedColor: "#6f6f5d"
+    - stampedName: СОВЕРШЕННО СЕКРЕТНО
+      stampedColor: "#cc0000"
+    content: |
+      [color=#0fcd50]███░███░░░░██░░░░[/color]
+      [color=#0fcd50]░██░████░░░██░░░░[/color]               [head=3]Постановление[/head]
+      [color=#0fcd50]░░█░██░██░░██░█░░[/color]                     [head=3]NanoTrasen[/head]
+      [color=#0fcd50]░░░░██░░██░██░██░[/color]      [head=3]Совершенно Секретно[/head]
+      [color=#0fcd50]░░░░██░░░████░███[/color]
+
+        [head=2]Департамент Специальных Операций[/head]
+      ==================================================
+                                           [head=3]ДСО-034-003-8563[/head]
+      ==================================================
+      ДАННЫЙ ДОКУМЕНТ НАХОДИТСЯ ПОД ГРИФОМ СОВЕРШЕННО СЕКРЕТНО
+
+      ПОЛУЧЕНИЕ ИЛИ ПЕРЕДАЧА ДАННОГО ДОКУМЕНТА БЕЗ НЕОБХОДИМОГО ДОСТУПА ЯВЛЯЕТСЯ НАРУШЕНИЕМ РЕЖИМА СЕКРЕТНОСТИ
+
+      СЛАВА НАНОТРЕЙЗЕН!
+
+      Эскадрон смерти, отряд Танго - ваша задача:
+      1. Уничтожить любых существ, обладающих разумом и которые были свидетелями произошедших событий на станции
+      2. Уничтожить любых существ, обладающих разумом и которые были свидетелями вашего присутствия
+      3. Максимально сохранить имущество НаноТрейзен
+      
+      Вы ОБЯЗАНЫ:
+      1. Выполнять приказы из штаба ДСО
+      2. Докладывать о продвижении операции в штаб ДСО
+      3. Недопустить утери снаряжения эскадрона смерти
+      4. Уничтожить любых разумных существ, если не было обратного приказа
+      5. Минимизировать ущерб имуществу НаноТрейзен 
+      6. Не при каких условиях, не вступать в контакт с разумными существа не из штаба ДСО и эскадрона смерти, если не было обратного приказа
+      7. Умереть ради НаноТрейзен - если это потребуется для выполнения операции.
+
+      Любые другие детали операции будут лично переданы штабом ДСО
+      Документ должен быть уничтожен после прочтения
+      ==================================================
+                                             [italic]Место для печатей[/italic]
+
+- type: entity
+  parent: Paper
+  id: DeSqDocumentDelta
+  suffix:  
+  name: Постановление ДСО-034-003-8578
+  components:
+  - type: Paper
+    stampState: paper_stamp-qm
+    stampedBy:
+    - stampedName: ДЕПАРТАМЕНТ СО
+      stampedColor: "#6f6f5d"
+    - stampedName: СОВЕРШЕННО СЕКРЕТНО
+      stampedColor: "#cc0000"
+    content: |
+      [color=#0fcd50]███░███░░░░██░░░░[/color]
+      [color=#0fcd50]░██░████░░░██░░░░[/color]               [head=3]Постановление[/head]
+      [color=#0fcd50]░░█░██░██░░██░█░░[/color]                     [head=3]NanoTrasen[/head]
+      [color=#0fcd50]░░░░██░░██░██░██░[/color]      [head=3]Совершенно Секретно[/head]
+      [color=#0fcd50]░░░░██░░░████░███[/color]
+
+        [head=2]Департамент Специальных Операций[/head]
+      ==================================================
+                                           [head=3]ДСО-034-003-8578[/head]
+      ==================================================
+      ДАННЫЙ ДОКУМЕНТ НАХОДИТСЯ ПОД ГРИФОМ СОВЕРШЕННО СЕКРЕТНО
+
+      ПОЛУЧЕНИЕ ИЛИ ПЕРЕДАЧА ДАННОГО ДОКУМЕНТА БЕЗ НЕОБХОДИМОГО ДОСТУПА ЯВЛЯЕТСЯ НАРУШЕНИЕМ РЕЖИМА СЕКРЕТНОСТИ
+
+      СЛАВА НАНОТРЕЙЗЕН!
+
+      Эскадрон смерти, отряд Дельта - ваша задача:
+      1. Уничтожить любых существ, представляющих угрозу для высокопоставленных лиц или охраняемого объекта NanoTrasen.
+      2. Максимально сохранить имущество НаноТрейзен
+      3. Сохранить жизнь и безопасность высокопоставленных лиц и охраняемого объекта NanoTrasen
+
+      Вы ОБЯЗАНЫ:
+      1. Выполнять приказы из штаба ДСО
+      2. Докладывать о продвижении операции в штаб ДСО
+      3. Недопустить утери снаряжения эскадрона смерти
+      4. Уничтожить всех существ, которые представляют угрозу для высокопоставленных лиц или охраняемого объекта NanoTrasen
+      5. Минимизировать ущерб имуществу НаноТрейзен 
+      6. Не при каких условиях, не вступать в контакт с разумными существа не из штаба ДСО и эскадрона смерти, если не было обратного приказа
+      7. Умереть ради НаноТрейзен - если это потребуется для выполнения операции.
+
+      Любые другие детали операции будут лично переданы штабом ДСО
+      Документ должен быть уничтожен после прочтения
+      ==================================================
+                                             [italic]Место для печатей[/italic]
+
+- type: entity
+  parent: Paper
+  id: DeSqDocumentFoxtrot
+  suffix:  
+  name: Постановление ДСО-034-003-8347
+  components:
+  - type: Paper
+    stampState: paper_stamp-qm
+    stampedBy:
+    - stampedName: ДЕПАРТАМЕНТ СО
+      stampedColor: "#6f6f5d"
+    - stampedName: СОВЕРШЕННО СЕКРЕТНО
+      stampedColor: "#cc0000"
+    content: |
+      [color=#0fcd50]███░███░░░░██░░░░[/color]
+      [color=#0fcd50]░██░████░░░██░░░░[/color]               [head=3]Постановление[/head]
+      [color=#0fcd50]░░█░██░██░░██░█░░[/color]                     [head=3]NanoTrasen[/head]
+      [color=#0fcd50]░░░░██░░██░██░██░[/color]      [head=3]Совершенно Секретно[/head]
+      [color=#0fcd50]░░░░██░░░████░███[/color]
+
+        [head=2]Департамент Специальных Операций[/head]
+      ==================================================
+                                           [head=3]ДСО-034-003-8347[/head]
+      ==================================================
+      ДАННЫЙ ДОКУМЕНТ НАХОДИТСЯ ПОД ГРИФОМ СОВЕРШЕННО СЕКРЕТНО
+
+      ПОЛУЧЕНИЕ ИЛИ ПЕРЕДАЧА ДАННОГО ДОКУМЕНТА БЕЗ НЕОБХОДИМОГО ДОСТУПА ЯВЛЯЕТСЯ НАРУШЕНИЕМ РЕЖИМА СЕКРЕТНОСТИ
+
+      СЛАВА НАНОТРЕЙЗЕН!
+
+      Эскадрон смерти, отряд Фокстрот - ваша задача:
+      1. Уничтожить любых существ, угрожающих станции
+      2. Максимально сохранить имущество НаноТрейзен
+      3. По возможности сохранить важный персонал станции
+      
+      Вы ОБЯЗАНЫ:
+      1. Выполнять приказы из штаба ДСО
+      2. Докладывать о продвижении операции в штаб ДСО
+      3. Недопустить утери снаряжения эскадрона смерти
+      4. Уничтожить любых существ, которые подвергают опасности секретность отряда
+      5. Минимизировать ущерб имуществу НаноТрейзен 
+      6. Не при каких условиях, не вступать в контакт с разумными существа не из штаба ДСО и эскадрона смерти, если не было обратного приказа
+      7. Умереть ради НаноТрейзен - если это потребуется для выполнения операции.
+
+      Любые другие детали операции будут лично переданы штабом ДСО
+      Документ должен быть уничтожен после прочтения
+      ==================================================
+                                             [italic]Место для печатей[/italic]
+
+- type: entity
+  parent: BoxFolderBase
+  id: BoxFolderWhiteDeSq
+  name: Протоколы
+  suffix:  
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: folder-white
+    - state: folder-base
+  - type: StorageFill
+    contents:
+    - id: DeSqDocumentFoxtrot
+    - id: DeSqDocumentTango
+      id: DeSqDocumentDelta
+    
+
+- type: entity
+  name: Печать ДСО
+  parent: RubberStampBase
+  id: RubberStampDSO
+  suffix:  
+  components:
+  - type: Stamp
+    stampedName: ДЕПАРТАМЕНТ СО
+    stampedColor: "#6f6f5d"
+    stampState: "paper_stamp-qm"
+  - type: Sprite
+    state: stamp-chaplain
+
+- type: entity
+  name: Печать "Совершенно секретно"
+  parent: RubberStampBase
+  id: RubberStampSecret
+  suffix:  
+  components:
+  - type: Stamp
+    stampedName: СОВЕРШЕННО СЕКРЕТНО
+    stampedColor: "#cc0000"
+    stampState: "paper_stamp-hos"
+  - type: Sprite
+    state: stamp-hos
+
+- type: entity
+  parent: [ BaseCentcommContraband, CentcomIDCard ]
+  id: IDCardDeSqCommander
+  suffix:  
+  name: Id Карта командира Эскадрона Смерти
+  description: Как вы вообще эту id карту видите?
+  components:
+  - type: PresetIdCard
+    job: DeSqCommander
+  - type: Sprite
+    sprite: /Textures/DeathSquadFixed/identification_cards.rsi
+    layers:
+    - state: DeathSquad
+  - type: Access
+    groups:
+    - AllAccess
+  - type: Tag #  Ignore Chameleon tags
+    tags:
+    - DoorBumpOpener
+
+- type: entity
+  parent: IDCardDeSqCommander
+  id: IDCardDeSqOfficer
+  suffix:  
+  name: Id Карта офицера Эскадрона Смерти
+  components:
+  - type: PresetIdCard
+    job: DeSqOfficer
+
+- type: entity
+  parent: IDCardDeSqCommander
+  id: IDCardDeSqHealer
+  suffix:  
+  name: Id Карта медика Эскадрона Смерти
+  components:
+  - type: PresetIdCard
+    job: DeSqHealer
+
+- type: entity
+  parent: [ BaseCentcommContraband, CentcomPDA ]
+  id: PDADeSqCommander
+  name: КПК Эскадрона Cмерти
+  suffix: Кома, 
+  description: Пахнет смертью.
+  components:
+  - type: Sprite
+    sprite: /Textures/DeathSquadFixed/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-dq"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: Pda
+    id: IDCardDeSqCommander
+    penSlot:
+      startingItem: DeSqPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-dq
+  - type: PdaBorderColor
+    borderColor: "#333333"
+    accentVColor: "#390504"
+  - type: Icon
+    sprite: /Textures/DeathSquadFixed/pda.rsi
+    state: pda-dq
+  - type: Tag #  Ignore Chameleon tags
+    tags:
+    - DoorBumpOpener
+
+- type: entity
+  parent: PDADeSqCommander
+  id: PDADeSqOfficer
+  name: КПК Эскадрона Cмерти
+  suffix: Офицер, 
+  description: Пахнет смертью.
+  components:
+  - type: Pda
+    id: IDCardDeSqOfficer
+
+- type: entity
+  parent: PDADeSqCommander
+  id: PDADeSqHealer
+  name: КПК Эскадрона Cмерти
+  suffix: Медик, 
+  description: Пахнет смертью.
+  components:
+  - type: Pda
+    id: IDCardDeSqHealer
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconDeathSquad
+  icon:
+    sprite: /Textures/DeathSquadFixed/job_icons.rsi
+    state: DeathSquad
+  jobName: Эскадрон Смерти
+
+- type: job
+  id: DeSqCommander
+  name: Командир Эскадрона Смерти
+  playTimeTracker: JobEvent1
+  setPreference: false
+  startingGear: DeSqCommanderGear
+  icon: "JobIconDeathSquad"
+  supervisors: Офицер Специальных Операций
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddComponentSpecial
+    components:
+    #start-_CorvaxNext: surgery
+    #- type: CPRTraining
+    - type: SurgerySpeedModifier
+      speedModifier: 2
+    #end-_CorvaxNext: surgery
+    - type: CanChokeGrab
+    - type: Skills # Corvax-Next-Skills
+      skills:
+      - ShuttleControl
+      - Shooting
+      - AdvancedBuilding
+      - Surgery
+      - MedicalEquipment
+      - Butchering
+
+- type: job
+  id: DeSqOfficer
+  name: Офицер Эскадрона Смерти
+  playTimeTracker: JobEvent2
+  setPreference: false
+  startingGear: DeSqOfficerGear
+  icon: "JobIconDeathSquad"
+  supervisors: Офицер Специальных Операций
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddComponentSpecial
+    components:
+    #start-_CorvaxNext: surgery
+    #- type: CPRTraining
+    - type: SurgerySpeedModifier
+      speedModifier: 2
+    #end-_CorvaxNext: surgery
+    - type: CanChokeGrab
+    - type: Skills # Corvax-Next-Skills
+      skills:
+      - ShuttleControl
+      - Shooting
+      - AdvancedBuilding
+      - Surgery
+      - MedicalEquipment
+      - Butchering
+
+- type: job
+  id: DeSqHealer
+  name: Медик Эскадрона Смерти
+  playTimeTracker: JobEvent3
+  setPreference: false
+  startingGear: DeSqHealerGear
+  icon: "JobIconDeathSquad"
+  supervisors: Офицер Специальных Операций
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddComponentSpecial
+    components:
+    #start-_CorvaxNext: surgery
+    #- type: CPRTraining
+    - type: SurgerySpeedModifier
+      speedModifier: 2
+    #end-_CorvaxNext: surgery
+    - type: CanChokeGrab
+    - type: Skills # Corvax-Next-Skills
+      skills:
+      - ShuttleControl
+      - Shooting
+      - AdvancedBuilding
+      - Surgery
+      - MedicalEquipment
+      - Butchering
+
+- type: dataset
+  id: DeSqName
+  values:
+  - Альфа
+  - Бета
+  - Гамма
+  - Дельта
+  - Дзета
+  - Эта
+  - Тета
+  - Йота
+  - Каппа
+  - Лямбда
+  - Омикрон
+  - Омега
+  - Сигма
+  - Пси
+  - Кси
+
+- type: dataset
+  id: DeSqNumber
+  values:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  - 32
+  - 33
+  - 34
+  - 35
+  - 36
+  - 37
+  - 38
+  - 39
+  - 40
+  - 41
+  - 42
+  - 43
+  - 44
+  - 45
+  - 46
+  - 47
+  - 48
+  - 49
+  - 50
+  - 51
+  - 52
+  - 53
+  - 54
+  - 55
+  - 56
+  - 57
+  - 58
+  - 59
+  - 60
+  - 61
+  - 62
+  - 63
+  - 64
+  - 65
+  - 66
+  - 67
+  - 68
+  - 69
+  - 70
+  - 71
+  - 72
+  - 73
+  - 74
+  - 75
+  - 76
+  - 77
+  - 78
+  - 79
+  - 80
+  - 81
+  - 82
+  - 83
+  - 84
+  - 85
+  - 86
+  - 87
+  - 88
+  - 89
+  - 90
+  - 91
+  - 92
+  - 93
+  - 94
+  - 95
+  - 96
+  - 97
+  - 98
+  - 99
+
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingOuterHardsuitBase ]
+  id: ClothingOuterHardsuitDeSqCommander
+  name: Костюм командира Эскадрона Смерти
+  suffix:  
+  description: Высокотехнологичный костюм предназначенный для командира отряда Эскадрона Смерти.
+  components:
+  - type: Sprite
+    sprite: /Textures/DeathSquadFixed/dq_hardsuit_commander.rsi
+  - type: Clothing
+    sprite: /Textures/DeathSquadFixed/dq_hardsuit_commander.rsi
+    equipSound:
+      path: /Textures/DeathSquadFixed/Sound/suit.ogg
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    CoolingCoefficient: 0.001
+    HeatingCoefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.2
+        Slash: 0.2
+        Piercing: 0.2
+        Heat: 0.2
+        Radiation: 0.1
+        Caustic: 0.1
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.1
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitDeSqCommander
+  - type: ActivatableUI
+    key: enum.SharedGasTankUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.SharedGasTankUiKey.Key:
+        type: GasTankBoundUserInterface
+  - type: InputMover
+    toParent: true
+  - type: CanMoveInAir
+  - type: MovementSpeedModifier
+    weightlessAcceleration: 1
+    weightlessFriction: 0.3
+    weightlessModifier: 1.2
+  - type: Jetpack
+    moleUsage: 0.0085
+  - type: GasTank
+    outputPressure: 42.6
+    air:
+      volume: 25
+      temperature: 293.15
+      moles:
+        - 15.6769550865 # 22% oxygen
+        - 17.4001134885 # 78% nitrogen
+        # 1.5 * 32.051379050 total = ~90 min(2.4МПа)
+    tankLowPressure: 30.0
+
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  id: ClothingHeadHelmetHardsuitDeSqCommander
+  name: Шлем командира Эскадрона Смерти
+  suffix:  
+  description: Шлем от костюм командира Эскадрона Смерти.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: /Textures/DeathSquadFixed/dq_helmet_commander.rsi
+  - type: Clothing
+    sprite: /Textures/DeathSquadFixed/dq_helmet_commander.rsi
+    equipSound: /Textures/DeathSquadFixed/Sound/helmet.ogg
+    unequipSound: /Textures/DeathSquadFixed/Sound/helmet.ogg
+  - type: PointLight
+    color: "#00B5E2"
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.80
+        Heat: 0.80
+        Radiation: 0.80
+        Caustic: 0.95
+
+- type: entity
+  parent: ClothingOuterHardsuitDeSqCommander
+  id: ClothingOuterHardsuitDeSqOfficer
+  name: Костюм офицера Эскадрона Смерти
+  description: Высокотехнологичный костюм предназначенный для офицеров отряда Эскадрона Смерти.
+  components:
+  - type: Sprite
+    sprite: /Textures/DeathSquadFixed/dq_hardsuit.rsi
+  - type: Clothing
+    sprite: /Textures/DeathSquadFixed/dq_hardsuit.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.2
+        Heat: 0.3
+        Radiation: 0.1
+        Caustic: 0.1
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1.2
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitDeSqOfficer
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitDeSqCommander
+  id: ClothingHeadHelmetHardsuitDeSqOfficer
+  name: Шлем офицера Эскадрона Смерти
+  description: Шлем от костюма офицера Эскадрона Смерти.
+  components:
+  - type: Sprite
+    sprite: /Textures/DeathSquadFixed/dq_helmet.rsi
+  - type: Clothing
+    sprite: /Textures/DeathSquadFixed/dq_helmet.rsi
+    equipSound: /Textures/DeathSquadFixed/Sound/helmet.ogg
+    unequipSound: /Textures/DeathSquadFixed/Sound/helmet.ogg
+
+- type: entity
+  parent: ClothingOuterHardsuitDeSqCommander
+  id: ClothingOuterHardsuitDeSqHealer
+  name: Костюм медика Эскадрона Смерти
+  description: Высокотехнологичный костюм предназначенный для медиков отряда Эскадрона Смерти.
+  components:
+  - type: Sprite
+    sprite: /Textures/DeathSquadFixed/dq_alpha_hardsuit.rsi
+  - type: Clothing
+    sprite: /Textures/DeathSquadFixed/dq_alpha_hardsuit.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.3
+        Heat: 0.3
+        Radiation: 0.1
+        Caustic: 0.1
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1.3
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitDeSqHealer
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitDeSqCommander
+  id: ClothingHeadHelmetHardsuitDeSqHealer
+  name: шлем медика Эскадрона Смерти
+  description: Шлем от костюма полевого медика Эскадрона Смерти.
+  components:
+  - type: Sprite
+    sprite: /Textures/DeathSquadFixed/dq_alpha_helmet.rsi
+  - type: Clothing
+    sprite: /Textures/DeathSquadFixed/dq_alpha_helmet.rsi
+    equipSound: /Textures/DeathSquadFixed/Sound/helmet.ogg
+    unequipSound: /Textures/DeathSquadFixed/Sound/helmet.ogg
+
+- type: entity
+  parent: ClothingShoesBootsMag
+  id: ClothingShoesBootsMagDeSq
+  name: ботинки Эскадрона Смерти
+  suffix:  
+  description: Самые современные магнитные ботинки в узнаваемых цветах.
+  components:
+  - type: Sprite
+    sprite: /Textures/DeathSquadFixed/dq_boots.rsi
+    state: icon
+  - type: Clothing
+    sprite: /Textures/DeathSquadFixed/dq_boots.rsi
+  - type: Magboots
+    toggleAction: ActionToggleMagbootsAdvanced
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+    enabled: false
+  - type: NoSlip
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Textures/DeathSquadFixed/Sound/magfootsteps.ogg
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesDeSq
+  name: боевые перчатки Эскадрона Смерти
+  suffix:  
+  description: Силовые перчатки, многократно усиливающие механическую силу удара.
+  components:
+  - type: Insulated
+  - type: Sprite
+    sprite: /Textures/DeathSquadFixed/dq_gloves.rsi
+  - type: Clothing
+    sprite: /Textures/DeathSquadFixed/dq_gloves.rsi
+  - type: StaminaDamageOnHit
+    damage: 15
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Blunt: 30
+    soundHit:
+      path: /Textures/DeathSquadFixed/Sound/glovepunch.ogg
+    animation: WeaponArcFist
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetDeSq
+  name: гарнитура Эскадрона Смерти
+  suffix:  
+  description: Гарнитура бойцов отряда Эскадрона Смерти.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyDeSq
+      - EncryptionKeyStationMaster
+  - type: Sprite
+    sprite: /Textures/DeathSquadFixed/dq_headset.rsi
+  - type: Clothing
+    sprite: /Textures/DeathSquadFixed/dq_headset.rsi
+
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyDeSq
+  suffix:  
+  name: ключ шифрования Эскадрона Эмерти
+  description: Ключ шифрования несущих смерть и хаос.
+  components:
+  - type: EncryptionKey
+    channels:
+    - DeSq
+    #- DSO
+    - CentCom
+    defaultChannel: DeSq
+  - type: Sprite
+    sprite: /Textures/DeathSquadFixed/encryption_keys.rsi
+    layers:
+    - state: crypt_blue
+    - state: ds_label
+
+- type: radioChannel
+  id: DeSq
+  name: Эскадрон Смерти
+  keycode: 'э' # Corvax-Localization
+  frequency: 2654
+  color: "#1700cb"
+  longRange: true
+
+ - type: entity #Уберите коменты у этого, если хотите отдельный канал для ДСО,т.е.
+   parent: EncryptionKey #ОБР+РХБЗЗ, если например на смене есть ОЦК,
+   id: EncryptionKeyDSO #что бы важные приказы не были упущены
+   name: ключ шифрования "ДСО"
+   components:
+   - type: EncryptionKey
+     channels:
+     - DSO
+     defaultChannel: DSO
+   - type: Sprite
+     layers:
+     - state: crypt_blue
+     - state: nano_label
+
+ - type: radioChannel
+   id: DSO
+   name: ДСО
+   keycode: ':' # inventor05-Localization
+   frequency: 23325 # dd.mm.yy
+   color: "#00aaff"
+   # long range since otherwise it'd defeat the point of a handheld radio independent of telecomms - by Corvax
+   longRange: true
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingDeSqBackpack
+  name: рюкзак Эскадрона Смерти
+  suffix: Пустой, 
+  description: Рюкзак повышенной вместимости отряда Эскадрона Смерти.
+  components:
+  - type: Sprite
+    sprite: Corvax/Back/Backpacks/deathsquad-backpack.rsi
+  - type: Storage
+    grid:
+    - 0,0,7,6
+    maxItemSize: Huge
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+
+- type: entity
+  parent: ClothingDeSqBackpack
+  id: ClothingDeSqBackpackCommander
+  name: рюкзак Эскадрона Смерти
+  suffix: Кома, 
+  description: Рюкзак повышенной вместимости отряда Эскадрона Смерти.
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponDeSqPulseRifle
+      - id: Omnitool
+      - id: WeaponRevolverMatebaAP
+      - id: SpeedLoaderMagnumAP
+        amount: 4
+      - id: GrenadeIncendiary
+        amount: 2
+      - id: GrenadeShrapnel
+        amount: 2
+      - id: PinpointerNuclear
+
+- type: entity
+  parent: ClothingDeSqBackpack
+  id: ClothingDeSqBackpackOfficer
+  name: рюкзак Эскадрона Смерти
+  suffix: Офицер, 
+  description: Рюкзак повышенной вместимости отряда Эскадрона Смерти.
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponDeSqPulseRifle
+      - id: Omnitool
+      - id: WeaponRevolverMateba
+      - id: SpeedLoaderMagnumAP
+        amount: 4
+      - id: GrenadeIncendiary
+        amount: 2
+      - id: GrenadeShrapnel
+        amount: 2
+
+- type: entity
+  parent: ClothingDeSqBackpack
+  id: ClothingDeSqBackpackHealer
+  name: рюкзак Эскадрона Смерти
+  suffix: Медик, 
+  description: Рюкзак повышенной вместимости одноименного отряда
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponDeSqPulseRifle
+      - id: Omnitool
+      - id: WeaponRevolverMatebaAP
+      - id: SpeedLoaderMagnumAP
+        amount: 4
+      - id: SmokeGrenade
+      - id: TearGasGrenade
+      - id: EmergencyMedipenDeSq
+        amount: 4
+
+- type: flavor
+  id: HolyMoly
+  flavorType: Base
+  description: божественно
+
+- type: reagent
+  id: HolyMolyWater
+  name: очень святая вода
+  group: Medicine
+  desc: Концентрированная святая вода, лечащая все болезни и даже смерть.
+  physicalDesc: невозможное
+  flavor: HolyMoly
+  color: "#e8e8e8"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -10
+            Burn: -10
+            Airloss: -10
+            Toxin: -10
+      - !type:ModifyBleedAmount
+        amount: -1.5
+    Drink:
+      effects:
+        - !type:SatiateThirst
+          factor: 6
+        - !type:ModifyBloodLevel
+          amount: 6
+
+- type: entity
+  name: экстренный боевой медипен
+  parent: ChemicalMedipen
+  id: EmergencyMedipenDeSq
+  suffix:  
+  description: Экстренный медипен, который в кратчайшие сроки ставит на ноги даже при самых тяжелых травмах. Из-за дороговизны и трудности производства применяется только элитными отрядами.
+  components:
+  - type: Sprite
+    sprite: /Textures/DeathSquadFixed/medipen.rsi
+    netsync: false
+    layers:
+    - state: medipen-ds
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: medipen-ds_empty
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 20
+        reagents:
+        - ReagentId: HolyMolyWater
+          Quantity: 20
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 20
+
+- type: entity
+  name: пульсовый карабин
+  parent: WeaponPulseRifle
+  id: WeaponDeSqPulseRifle
+  suffix:  
+  description: Энергетическая винтовка тяжелого типа, которой вооружены солдаты Эскадрона Смерти.
+  components:
+  - type: Gun
+    fireRate: 2.5
+    soundGunshot:
+      path: /Textures/DeathSquadFixed/Sound/rifle.ogg
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesHudDeSq
+  suffix:  
+  name: визор Эскадрона Cмерти
+  description: Визор, показывающий информации о членах экипажа.
+  components:
+  - type: Sprite
+    sprite: /Textures/DeathSquadFixed/dq_visor.rsi
+  - type: Clothing
+    sprite: /Textures/DeathSquadFixed/dq_visor.rsi
+  - type: ShowJobIcons
+  - type: ShowMindShieldIcons
+  - type: Tag
+    tags:
+    - HudSecurity
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesHudOmniDeSq
+  name: усовершенствованный визор Эскадрона Смерти
+  suffix:  
+  description: Визор, сочитающий в себе все остальные. Из-за крайней сложности и дороговизны был создан в единичных экземплярах.
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Hud/omni.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Hud/omni.rsi
+  - type: ShowJobIcons
+  - type: ShowMindShieldIcons
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - Inorganic
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+  - type: ShowHungerIcons
+  - type: ShowThirstIcons
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltDeSqCommander
+  name: штурмовой пояс командира
+  suffix:  
+  description: Штурмовой пояс, в котором можно хранить боеприпасы или другие убийственные вещи.
+  components:
+  - type: Sprite
+    sprite: Clothing/Belt/assault.rsi
+  - type: Clothing
+    sprite: Clothing/Belt/assault.rsi
+
+- type: entity
+  parent: ClothingBeltDeSqCommander
+  id: ClothingBeltDeSqOfficer
+  name: штурмовой пояс офицера
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazineMagnumSubMachineGun
+        amount: 8
+
+- type: entity
+  parent: ClothingBeltDeSqCommander
+  id: ClothingBeltDeSqHealer
+  name: штурмовой пояс медика
+
+- type: npcFaction
+  id: DeathSquad
+  hostile:
+  - NanoTrasen
+  - SimpleNeutral
+  - SimpleHostile
+  - Syndicate
+  - Passive
+  - Revolutionary
+  - Zombie
+  - Xeno
+  - Dragon
+  - Mouse
+  - PetsNT
+
+- type: npcFaction
+  id: Syndicate
+  hostile:
+  - NanoTrasen
+  - SimpleHostile
+  - Xeno
+  - PetsNT
+  - Zombie
+  - DeathSquad
+
+- type: npcFaction
+  id: Dragon
+  hostile:
+    - NanoTrasen
+    - Syndicate
+    - Xeno
+    - PetsNT
+    - Zombie
+    - Revolutionary
+    - DeathSquad
+
+- type: npcFaction
+  id: SimpleHostile
+  hostile:
+  - NanoTrasen
+  - Syndicate
+  - Passive
+  - PetsNT
+  - Zombie
+  - Revolutionary
+  - DeathSquad
+
+- type: npcFaction
+  id: Xeno
+  hostile:
+  - NanoTrasen
+  - Syndicate
+  - Passive
+  - PetsNT
+  - Zombie
+  - Revolutionary
+  - DeathSquad
+
+- type: npcFaction
+  id: Zombie
+  hostile:
+  - NanoTrasen
+  - SimpleNeutral
+  - SimpleHostile
+  - Syndicate
+  - Passive
+  - PetsNT
+  - Revolutionary
+  - DeathSquad
+
+- type: npcFaction
+  id: Revolutionary
+  hostile:
+  - NanoTrasen
+  - Zombie
+  - SimpleHostile
+  - Dragon
+  - DeathSquad
+
+- type: npcFaction
+  id: Mouse
+  hostile:
+  - PetsNT
+  - AllHostile
+  - Wizard
+
+- type: entity
+  parent: BaseWeaponTurret
+  id: WeaponTurretDeSq
+  name: турель Эскадрона Смерти
+  description: Турель с системой автоматического огня.
+  suffix:  
+  components:
+  - type: NpcFactionMember
+    factions:
+    - DeathSquad
+  - type: Gun
+    fireRate: 6
+    soundGunshot: /Audio/Weapons/Guns/Gunshots/minigun.ogg
+  - type: BallisticAmmoProvider
+    proto: BulletAcid
+    capacity: 1000
+
+- type: entity
+  parent: [DoorRemoteDefault, BaseCommandContraband]
+  id: DoorRemoteDeSq
+  name: путь от шлюзов для отряда Эскадрона Смерти
+  suffix:  
+  components:
+  - type: Sprite
+    sprite: /Textures/DeathSquadFixed/door_remote.rsi
+    state: door_remote_ds
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+
+- type: startingGear
+  id: DeSqCommanderGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitDeathSquad
+    back: ClothingDeSqBackpackCommander
+    shoes: ClothingShoesBootsMagDeSq
+    mask: ClothingMaskGasDeathSquad
+    eyes: ClothingEyesHudDeSq
+    gloves: ClothingHandsGlovesDeSq
+    outerClothing: ClothingOuterHardsuitDeSqCommander
+    id: PDADeSqCommander
+    ears: ClothingHeadsetDeSq
+    belt: ClothingBeltDeSqCommander
+    suitstorage: DeSqChainsword
+    pocket1: DoorRemoteDeSq
+    pocket2: BoxFolderWhiteDeSq
+
+- type: randomHumanoidSettings
+  id: DeSqCommanderRandom
+  speciesBlacklist: #HumanPower
+    - Diona
+    - Arachnid
+    - Dwarf
+    - Moth
+    - Reptilian
+    - Skeleton
+    - SlimePerson
+    - Vulpkanin
+    - Resomi
+    - Vox
+    - Tajaran
+  components:
+    - type: GhostRole
+      allowMovement: true
+      allowSpeech: true
+      makeSentient: true
+      requirements:
+        - !type:DepartmentTimeRequirement
+          department: Security
+          time: 72000
+        - !type:DepartmentTimeRequirement
+          department: Command
+          time: 36000
+      raffle:
+        settings: short
+      job: DeSqCommander
+      name: Командир Эскадрона Смерти
+      description: "Командир элитного отряда зачистки НаноТрейзен - Эскадрона Смерти. OOC - ПРОЧИТАТЬ БУМАГУ В КАРМАНЕ!"
+    - type: GhostTakeoverAvailable
+    - type: ZombieImmune
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        150: Critical
+        200: Dead
+    - type: Stamina
+      critThreshold: 200
+      decay: 6
+      cooldown: 1
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        70: 0.9
+        120: 0.7
+        140: 0.5
+    - type: Loadout
+      prototypes: [ DeSqCommanderGear ]
+    - type: AutoImplant
+      implants:
+      - DeathAcidifierImplant
+      - FreedomImplant
+      - MindShieldImplant
+    - type: NpcFactionMember
+      factions:
+      - DeathSquad
+    - type: StatusEffects
+      allowed:
+      - Stun
+      - KnockedDown
+      - SlowedDown
+      - Stutter
+      - Electrocution
+      - SlurredSpeech
+      - RatvarianLanguage
+      - PressureImmunity
+      - StaminaModifier
+    - type: Thirst
+      startingThirst: 2500  # spawn with Okay thirst state
+      thresholds:
+        OverHydrated: 3500
+        Okay: 2500
+        Thirsty: 1500
+        Parched: 1000
+        Dead: 0
+      baseDecayRate: 0.0001
+    - type: Hunger
+      currentHunger: 2500   # spawn with Okay hunger state
+      thresholds:
+        Overfed: 3500
+        Okay: 2500
+        Peckish: 1500
+        Starving: 1000
+        Dead: 0
+      baseDecayRate: 0.0001
+    - type: PassiveDamage 
+      allowedStates:
+      - Alive
+      - Critical
+      - Dead
+      damageCap: 200
+      damage:
+        groups:
+          Brute: -0.2
+          Burn: -0.2
+          Toxin: -0.2
+    - type: RandomMetadata
+      nameSegments:
+      - DeSqName
+      - DeSqNumber
+
+- type: entity
+  name: командир Эскадрона Смерти
+  id: MobHumanDeSqCommander
+  suffix: DSComRole, 
+  components:
+  - type: Sprite
+    sprite: /Textures/DeathSquadFixed/jobs.rsi
+    state: DeSqCom
+  - type: RandomMetadata
+    nameSegments:
+    - DeSqName
+    - DeSqNumber
+  - type: RandomHumanoidSpawner
+    settings: DeSqCommanderRandom
+
+- type: startingGear
+  id: DeSqOfficerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitDeathSquad
+    back: ClothingDeSqBackpackOfficer
+    shoes: ClothingShoesBootsMagDeSq
+    mask: ClothingMaskGasDeathSquad
+    eyes: ClothingEyesHudDeSq
+    gloves: ClothingHandsGlovesDeSq
+    outerClothing: ClothingOuterHardsuitDeSqOfficer
+    id: PDADeSqOfficer
+    ears: ClothingHeadsetDeSq
+    belt: ClothingBeltDeSqOfficer
+    pocket1: EnergySword
+    suitstorage: WeaponDeSqRifleSP
+    pocket2: BoxFolderWhiteDeSq
+
+- type: randomHumanoidSettings
+  id: DeSqOfficerRandom
+  speciesBlacklist: #HumanPower
+    - Diona
+    - Arachnid
+    - Dwarf
+    - Moth
+    - Reptilian
+    - Skeleton
+    - SlimePerson
+    - Vulpkanin
+    - Resomi
+    - Vox
+  components:
+    - type: GhostRole
+      allowMovement: true
+      allowSpeech: true
+      makeSentient: true
+      requirements: 
+        - !type:DepartmentTimeRequirement
+          department: Security
+          time: 54000
+      raffle:
+        settings: short
+      job: DeSqOfficer
+      name: Офицер Эскадрона Смерти
+      description: "Офицер элитного отряда зачистки НаноТрейзен - Эскадрона Смерти. OOC - ПРОЧИТАТЬ БУМАГУ В КАРМАНЕ!"
+    - type: GhostTakeoverAvailable
+    - type: ZombieImmune
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        150: Critical
+        200: Dead
+    - type: Stamina
+      critThreshold: 200
+      decay: 6
+      cooldown: 1
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        70: 0.9
+        120: 0.7
+        140: 0.5
+    - type: Loadout
+      prototypes: [ DeSqOfficerGear ]
+    - type: AutoImplant
+      implants:
+      - DeathAcidifierImplant
+      - FreedomImplant
+      - MindShieldImplant
+    - type: NpcFactionMember
+      factions:
+      - DeathSquad
+    - type: StatusEffects
+      allowed:
+      - Stun
+      - KnockedDown
+      - SlowedDown
+      - Stutter
+      - Electrocution
+      - SlurredSpeech
+      - RatvarianLanguage
+      - PressureImmunity
+      - StaminaModifier
+    - type: Thirst
+      startingThirst: 2500  # spawn with Okay thirst state
+      thresholds:
+        OverHydrated: 3500
+        Okay: 2500
+        Thirsty: 1500
+        Parched: 1000
+        Dead: 0
+      baseDecayRate: 0.0001
+    - type: Hunger
+      currentHunger: 2500   # spawn with Okay hunger state
+      thresholds:
+        Overfed: 3500
+        Okay: 2500
+        Peckish: 1500
+        Starving: 1000
+        Dead: 0
+      baseDecayRate: 0.0001
+    - type: PassiveDamage 
+      allowedStates:
+      - Alive
+      - Critical
+      - Dead
+      damageCap: 200
+      damage:
+        groups:
+          Brute: -0.2
+          Burn: -0.2
+          Toxin: -0.2
+    - type: RandomMetadata
+      nameSegments:
+      - DeSqName
+      - DeSqNumber
+
+- type: entity
+  name: Офицер Эскадрона Смерти
+  id: MobHumanDeSqOfficer
+  suffix:  , DeathSquad
+  components:
+  - type: Sprite
+    sprite: /Textures/DeathSquadFixed/jobs.rsi
+    state: DeSqOfficer
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: RandomMetadata
+    nameSegments:
+    - DeSqName
+    - DeSqNumber
+  - type: RandomHumanoidSpawner
+    settings: DeSqOfficerRandom
+  
+- type: startingGear
+  id: DeSqHealerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitDeathSquad
+    back: ClothingDeSqBackpackHealer
+    shoes: ClothingShoesBootsMagDeSq
+    mask: ClothingMaskGasDeathSquad
+    eyes: ClothingEyesHudOmniDeSq
+    gloves: ClothingHandsGlovesDeSq
+    outerClothing: ClothingOuterHardsuitDeSqHealer
+    id: PDADeSqHealer
+    ears: ClothingHeadsetDeSq
+    belt: ClothingBeltDeSqHealer
+    pocket1: EnergySword
+    suitstorage: DeSqSyringeGun
+    pocket2: BoxFolderWhiteDeSq
+
+- type: randomHumanoidSettings
+  id: DeSqHealerRandom
+  speciesBlacklist: #HumanPower
+    - Diona
+    - Arachnid
+    - Dwarf
+    - Moth
+    - Reptilian
+    - Skeleton
+    - SlimePerson
+    - Vulpkanin
+    - Resomi
+    - Vox
+      Tajaran
+  components:
+    - type: GhostRole
+      allowMovement: true
+      allowSpeech: true
+      makeSentient: true
+      requirements:
+        - !type:DepartmentTimeRequirement
+          department: Security
+          time: 54000
+        - !type:DepartmentTimeRequirement
+          department: Medical
+          time: 36000
+      raffle:
+        settings: short
+      job: DeSqHealer
+      name: Медик Эскадрона Смерти
+      description: "Медик элитного отряда зачистки НаноТрейзен - Эскадрона Смерти. OOC - ПРОЧИТАТЬ БУМАГУ В КАРМАНЕ!"
+    - type: GhostTakeoverAvailable
+    - type: ZombieImmune
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        150: Critical
+        200: Dead
+    - type: Stamina
+      critThreshold: 200
+      decay: 6
+      cooldown: 1
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        70: 0.9
+        120: 0.7
+        140: 0.5
+    - type: Loadout
+      prototypes: [ DeSqHealerGear ]
+    - type: AutoImplant
+      implants:
+      - DeathAcidifierImplant
+      - FreedomImplant
+      - MindShieldImplant
+    - type: NpcFactionMember
+      factions:
+      - DeathSquad
+    - type: StatusEffects
+      allowed:
+      - Stun
+      - KnockedDown
+      - SlowedDown
+      - Stutter
+      - Electrocution
+      - SlurredSpeech
+      - RatvarianLanguage
+      - PressureImmunity
+      - StaminaModifier
+    - type: Thirst
+      startingThirst: 2500  # spawn with Okay thirst state
+      thresholds:
+        OverHydrated: 3500
+        Okay: 2500
+        Thirsty: 1500
+        Parched: 1000
+        Dead: 0
+      baseDecayRate: 0.0001
+    - type: Hunger
+      currentHunger: 2500   # spawn with Okay hunger state
+      thresholds:
+        Overfed: 3500
+        Okay: 2500
+        Peckish: 1500
+        Starving: 1000
+        Dead: 0
+      baseDecayRate: 0.0001
+    - type: PassiveDamage 
+      allowedStates:
+      - Alive
+      - Critical
+      - Dead
+      damageCap: 200
+      damage:
+        groups:
+          Brute: -0.2
+          Burn: -0.2
+          Toxin: -0.2
+    - type: RandomMetadata
+      nameSegments:
+      - DeSqName
+      - DeSqNumber
+
+- type: entity
+  name: Медик Эскадрона Смерти
+  id: MobHumanDeSqHealer
+  suffix:  
+  components:
+  - type: Sprite
+    sprite: /Textures/DeathSquadFixed/jobs.rsi
+    state: DeSqHealer
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: RandomMetadata
+    nameSegments:
+    - DeSqName
+    - DeSqNumber
+  - type: RandomHumanoidSpawner
+    settings: DeSqHealerRandom
+
+- type: entity
+  name: SP-91-RC
+  parent: BaseWeaponRifle
+  suffix:  
+  id: WeaponDeSqRifleSP
+  description: Крупный пистолет-пулемет использующий патроны калибра .45 магнум
+  components:
+  - type: Sprite
+    sprite: /Textures/DeathSquadFixed/sp-91.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    fireRate: 7
+    soundGunshot:
+      path: /Textures/DeathSquadFixed/Sound/sp-91.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineMagnumSubMachineGun
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineMagnumSubMachineGun
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeMagnum
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeMagnum
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+
+- type: Tag
+  id: SyringeBullet
+
+- type: entity
+  parent: MiniSyringe
+  id: SyringeAmmoDeSq
+  name: Шприц-снаряд
+  abstract: true
+  suffix:  
+  description: Шприц-снаряд, вводящий реагент при попадании.
+  components:
+  - type: Sprite
+    sprite: /Textures/DeathSquadFixed/syringe.rsi
+    layers:
+      - state: minisyringe1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+      - state: syringeproj
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    fillBaseName: minisyringe
+    inHandsMaxFillLevels: 3
+    inHandsFillBaseName: -fill-
+  - type: SolutionInjectOnEmbed
+    transferAmount: 15
+    solution: injector
+  - type: Tag
+    tags:
+      - SyringeBullet
+
+- type: entity
+  parent: SyringeAmmoDeSq
+  id: PrefilledSyringeAmmoDeSq
+  components:
+  - type: Injector
+    toggleState: Inject
+
+- type: entity
+  name: Коробка шприцов-снарядов
+  parent: BoxCardboard
+  suffix: Пусто, 
+  id: BoxSyringeAmmoDeSq
+  description: Полная коробка веселья.
+  components:
+  - type: StorageFill
+    contents:
+      - id: PrefilledSyringeAmmoDeSq
+        amount: 9
+  - type: Sprite
+    layers:
+      - state: box_medical 
+      - state: syringe
+
+- type: entity
+  parent: PrefilledSyringeAmmoDeSq
+  suffix: Политриновая кислота, 
+  id: SyringeAmmoDeSqPolytrinic
+  components:
+  - type: Label
+    currentLabel: Политриновая кислота
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: PolytrinicAcid
+          Quantity: 15
+
+- type: entity
+  parent: BoxSyringeAmmoDeSq
+  suffix: Политриновая кислота, 
+  id: BoxSyringeAmmoDeSqPolytrinic
+  components:
+  - type: Label
+    currentLabel: Политриновая кислота
+  - type: StorageFill
+    contents:
+      - id: SyringeAmmoDeSqPolytrinic
+        amount: 9
+
+- type: entity
+  parent: PrefilledSyringeAmmoDeSq
+  suffix: Ноктюрин, 
+  id: SyringeAmmoDeSqNocturine
+  components:
+  - type: Label
+    currentLabel: Ноктюрин
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nocturine
+          Quantity: 15
+
+- type: entity
+  parent: BoxSyringeAmmoDeSq
+  suffix: Ноктюрин, 
+  id: BoxSyringeAmmoDeSqNocturine
+  components:
+  - type: Label
+    currentLabel: Ноктюрин
+  - type: StorageFill
+    contents:
+      - id: SyringeAmmoDeSqNocturine
+        amount: 9
+
+- type: entity
+  parent: PrefilledSyringeAmmoDeSq
+  suffix: Ромерол, 
+  id: SyringeAmmoDeSqRomerol
+  components:
+  - type: Label
+    currentLabel: Ромерол
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Romerol
+          Quantity: 15
+
+- type: entity
+  parent: BoxSyringeAmmoDeSq
+  suffix: Ромерол, 
+  id: BoxSyringeAmmoDeSqRomerol
+  components:
+  - type: Label
+    currentLabel: Ромерол
+  - type: StorageFill
+    contents:
+      - id: SyringeAmmoDeSqRomerol
+        amount: 9
+
+- type: entity
+  parent: PrefilledSyringeAmmoDeSq
+  suffix: Свинец, 
+  id: SyringeAmmoDeSqLead
+  components:
+  - type: Label
+    currentLabel: Свинец
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Lead
+          Quantity: 15
+
+- type: entity
+  parent: BoxSyringeAmmoDeSq
+  suffix: Свинец, 
+  id: BoxSyringeAmmoDeSqLead
+  components:
+  - type: Label
+    currentLabel: Свинец
+  - type: StorageFill
+    contents:
+      - id: SyringeAmmoDeSqLead
+        amount: 9
+
+- type: entity
+  parent: PrefilledSyringeAmmoDeSq
+  suffix: Пакс, 
+  id: SyringeAmmoDeSqPax
+  components:
+  - type: Label
+    currentLabel: Пакс
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Pax
+          Quantity: 15
+
+- type: entity
+  parent: BoxSyringeAmmoDeSq
+  suffix: Пакс, 
+  id: BoxSyringeAmmoDeSqPax
+  components:
+  - type: Label
+    currentLabel: Пакс
+  - type: StorageFill
+    contents:
+      - id: SyringeAmmoDeSqPax
+        amount: 9
+
+- type: entity 
+  parent: PrefilledSyringeAmmoDeSq
+  suffix: Норэпинефриновая кислота, 
+  id: SyringeAmmoDeSqNorepinephric
+  components:
+  - type: Label
+    currentLabel: Норэпинефриновая кислота
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: NorepinephricAcid
+          Quantity: 15
+
+- type: entity
+  parent: BoxSyringeAmmoDeSq
+  suffix: Норэпинефриновая кислота, 
+  id: BoxSyringeAmmoDeSqNorepinephric
+  components:
+  - type: Label
+    currentLabel: Норэпинефриновая кислота
+  - type: StorageFill
+    contents:
+      - id: SyringeAmmoDeSqNorepinephric
+        amount: 9
+
+- type: entity
+  parent: PrefilledSyringeAmmoDeSq
+  suffix: Тазинид, 
+  id: SyringeAmmoDeSqTazinide
+  components:
+  - type: Label
+    currentLabel: Тазинид
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Tazinide
+          Quantity: 15
+
+- type: entity
+  parent: BoxSyringeAmmoDeSq
+  suffix: Тазинид, 
+  id: BoxSyringeAmmoDeSqTazinide
+  components:
+  - type: Label
+    currentLabel: Тазинид
+  - type: StorageFill
+    contents:
+      - id: SyringeAmmoDeSqTazinide
+        amount: 9
+
+- type: entity
+  parent: PrefilledSyringeAmmoDeSq
+  suffix: Лексорин, 
+  id: SyringeAmmoDeSqLexorin
+  components:
+  - type: Label
+    currentLabel: Лексорин
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Lexorin
+          Quantity: 15
+
+- type: entity
+  parent: BoxSyringeAmmoDeSq
+  suffix: Лексорин, 
+  id: BoxSyringeAmmoDeSqLexorin
+  components:
+  - type: Label
+    currentLabel: Лексорин
+  - type: StorageFill
+    contents:
+      - id: SyringeAmmoDeSqLexorin
+        amount: 9
+
+- type: entity
+  parent: WeaponImprovisedPneumaticCannon
+  name: Мультизарядный шприцемет
+  suffix:  
+  id: DeSqSyringeGun
+  description: Мультизарядный шприцемет, позволяющий вводить вещество на расстоянии
+  components:
+  - type: Sprite
+    sprite: /Textures/DeathSquadFixed/acidgun.rsi
+    layers:
+    - state: icon
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  - type: PneumaticCannon
+    throwItems: false
+    gasUsage: 0
+  - type: Gun
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Textures/DeathSquadFixed/Sound/pew.ogg
+    soundEmpty:
+      path: /Textures/DeathSquadFixed/Sound/empty.ogg
+  - type: Storage
+    storageOpenSound: /Textures/DeathSquadFixed/Sound/loading2.ogg
+    storageCloseSound: /Textures/DeathSquadFixed/Sound/loading3.ogg
+    storageInsertSound: /Textures/DeathSquadFixed/Sound/loading.ogg
+    maxItemSize: Normal
+    grid:
+    - 0,0,2,2
+    whitelist:
+      tags:
+        - SyringeBullet
+  - type: Clothing
+    sprite: /Textures/DeathSquadFixed/acidgun.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+    - Belt
+  - type: Multishot
+
+- type: entity
+  name: Энергетический меч-бензопила
+  suffix:  
+  parent: BaseItem
+  id: DeSqChainsword
+  description: Технологии и ультранасилие в одном флаконе!
+  components:
+  - type: EnergySword
+  - type: ItemToggle
+    soundActivate:
+      path: /Textures/DeathSquadFixed/Sound/start.ogg
+      params:
+        volume: 5
+    soundDeactivate:
+      path: /Textures/DeathSquadFixed/Sound/start.ogg
+      params:
+        volume: 5
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Textures/DeathSquadFixed/Sound/idle.ogg
+      params:
+        volume: -10
+  - type: ComponentToggler
+    components:
+    - type: Sharp
+    - type: DisarmMalus
+      malus: 0.9
+  - type: ItemToggleHot
+  - type: ItemToggleSize
+    activatedSize: Huge
+  - type: ItemTogglePointLight
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Textures/DeathSquadFixed/Sound/hit.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnHitNoDamage:
+      path: /Textures/DeathSquadFixed/Sound/hit.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedSoundOnSwing:
+      path: /Textures/DeathSquadFixed/Sound/miss.ogg
+      params:
+        variation: 0.125
+    activatedDamage:
+        types:
+            Slash: 30
+            Blunt: 20
+            Structural: 50
+  - type: Tool
+    qualities:
+      - Prying
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: Sprite
+    sprite: /Textures/DeathSquadFixed/chainsword.rsi
+    layers:
+      - state: chainsword
+      - state: chainsword_blade
+        color: "#FFFFFF"
+        visible: false
+        shader: unshaded
+        map: [ "blade" ]
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 10
+        Slash: 5
+  - type: PointLight
+    enabled: false
+    radius: 2
+    energy: 2
+    color: white
+    netsync: false
+  - type: Item
+    size: Normal
+    sprite: /Textures/DeathSquadFixed/chainsword.rsi
+  - type: UseDelay
+    delay: 1.0
+  - type: Appearance
+  - type: Reflect
+    reflectProb: .25
+    spread: 45
+  - type: IgnitionSource
+    temperature: 700
+  - type: ToggleableLightVisuals
+    spriteLayer: blade
+    inhandVisuals:
+      left:
+      - state: inhand-left-blade
+        shader: unshaded
+      right:
+      - state: inhand-right-blade
+        shader: unshaded
+  - type: Clothing
+    sprite: /Textures/DeathSquadFixed/acidgun.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+
+- type: entity
+  name: ручка Эскадрона Смерти
+  parent: [BaseAdvancedPen, BaseCentcommContraband]
+  id: DeSqPen
+  description: Ручка Эскадрона Смерти, которую изготавливают специально для самых элитных отрядов NanoTrasen!
+  components:
+  - type: Sprite
+    sprite: /Textures/DeathSquadFixed/pen.rsi
+    state: pen_deathsquad
+  - type: Item
+    sprite: /Textures/DeathSquadFixed/pen.rsi
+    heldPrefix: pen_deathsquad

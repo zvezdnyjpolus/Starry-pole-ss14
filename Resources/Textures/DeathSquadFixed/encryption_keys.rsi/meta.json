@@ -1,0 +1,13 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "crypt_blue take from Corvax, ds_label made by JrIventor05(ds: qwerty05555)",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+      {"name": "crypt_blue"},
+      {"name": "ds_label"}
+    ]
+}

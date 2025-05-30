@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "pen_deathsquad is a resprited version of pen_centcom by JrInventor05(GH, DS: qwerty05555)",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+      {
+        "name": "pen_deathsquad"
+      },
+      {
+        "name": "pen_deathsquad-inhand-left",
+        "directions": 4
+      },
+      {
+        "name": "pen_deathsquad-inhand-right",
+        "directions": 4
+      }
+    ]
+  }
