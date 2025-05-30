@@ -1,0 +1,55 @@
+{
+	"version": 1,
+	"license": "CC-BY-SA-3.0",
+	"copyright": "syringeproj, minisyringe1, minisyringe2, minisyringe3 some resprited by JrInventor05(ds: qwerty05555). Other take from bild Corvax Next",
+	"size": {
+		"x": 32,
+		"y": 32
+	},
+	"states": [
+		{
+			"name": "syringeproj"
+		},
+		{
+			"name": "minisyringe1"
+		},
+		{
+			"name": "minisyringe2"
+		},
+		{
+			"name": "minisyringe3"
+		},
+		{
+		  "name": "inhand-left",
+		  "directions": 4
+		},
+		{
+		  "name": "inhand-right",
+		  "directions": 4
+		},
+		{
+			"name": "inhand-left-fill-1",
+			"directions": 4
+		},
+		{
+			"name": "inhand-right-fill-1",
+			"directions": 4
+		},
+		{
+			"name": "inhand-left-fill-2",
+			"directions": 4
+		},
+		{
+			"name": "inhand-right-fill-2",
+			"directions": 4
+		},
+		{
+			"name": "inhand-left-fill-3",
+			"directions": 4
+		},
+		{
+			"name": "inhand-right-fill-3",
+			"directions": 4
+		}
+	]
+}
