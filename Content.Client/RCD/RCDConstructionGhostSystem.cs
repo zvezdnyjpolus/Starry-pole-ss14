@@ -10,14 +10,15 @@ using Robust.Shared.Enums;
 using Robust.Shared.Input;
 using Robust.Shared.Input.Binding;
 
+using Robust.Shared.Prototypes;
 
 namespace Content.Client.RCD;
 
 public sealed class RCDConstructionGhostSystem : EntitySystem
 {
     [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly RCDSystem _rcdSystem = default!;
     [Dependency] private readonly IPlacementManager _placementManager = default!;
+    [Dependency] private readonly IPrototypeManager _protoManager = default!;
 
     private string _placementMode = typeof(AlignRCDConstruction).Name;
     private Direction _placementDirection = default;
@@ -97,6 +98,7 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
 
             return;
         }
+        var prototype = _protoManager.Index(rcd.ProtoId);
 
         // Update the direction the RCD prototype based on the placer direction
         if (_placementDirection != _placementManager.Direction)
@@ -105,14 +107,9 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
             RaiseNetworkEvent(new RCDConstructionGhostRotationEvent(GetNetEntity(heldEntity.Value), _placementDirection));
         }
 
-        // If the placer has not changed build it.
-        _rcdSystem.UpdateCachedPrototype(heldEntity.Value, rcd);
-        var useProto = (_useMirrorPrototype && !string.IsNullOrEmpty(rcd.CachedPrototype.MirrorPrototype)) ? rcd.CachedPrototype.MirrorPrototype : rcd.CachedPrototype.Prototype;
-
-        if (heldEntity != placerEntity || useProto != placerProto)
-        {
-            CreatePlacer(heldEntity.Value, rcd, useProto);
-        }
+        // If the placer has not changed, exit
+        if (heldEntity == placerEntity && prototype.Prototype == placerProto)
+            return;
 
 
     }
@@ -124,9 +121,9 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
         {
             MobUid = uid,
             PlacementOption = _placementMode,
-            EntityType = prototype,
+            EntityType = prototype.Prototype,
             Range = (int) Math.Ceiling(SharedInteractionSystem.InteractionRange),
-            IsTile = (component.CachedPrototype.Mode == RcdMode.ConstructTile),
+            IsTile = (prototype.Mode == RcdMode.ConstructTile),
             UseEditorContext = false,
         };
 
