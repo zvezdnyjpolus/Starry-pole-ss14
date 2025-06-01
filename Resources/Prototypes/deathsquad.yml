@@ -1,7 +1,7 @@
 - type: entity
   parent: Paper
   id: DeSqDocumentTango
-  suffix:  
+  suffix: deathsquad
   name: Постановление ДСО-034-003-8563
   components:
   - type: Paper
@@ -50,7 +50,7 @@
 - type: entity
   parent: Paper
   id: DeSqDocumentDelta
-  suffix:  
+  suffix: deathsquad
   name: Постановление ДСО-034-003-8578
   components:
   - type: Paper
@@ -96,10 +96,11 @@
       ==================================================
                                              [italic]Место для печатей[/italic]
 
+
 - type: entity
   parent: Paper
   id: DeSqDocumentFoxtrot
-  suffix:  
+  suffix: deathsquad
   name: Постановление ДСО-034-003-8347
   components:
   - type: Paper
@@ -149,7 +150,7 @@
   parent: BoxFolderBase
   id: BoxFolderWhiteDeSq
   name: Протоколы
-  suffix:  
+  suffix: deathsquad
   components:
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi
@@ -160,14 +161,13 @@
     contents:
     - id: DeSqDocumentFoxtrot
     - id: DeSqDocumentTango
-      id: DeSqDocumentDelta
-    
+    - id: DeSqDocumentDelta
 
 - type: entity
   name: Печать ДСО
   parent: RubberStampBase
   id: RubberStampDSO
-  suffix:  
+  suffix: deathsquad
   components:
   - type: Stamp
     stampedName: ДЕПАРТАМЕНТ СО
@@ -180,7 +180,7 @@
   name: Печать "Совершенно секретно"
   parent: RubberStampBase
   id: RubberStampSecret
-  suffix:  
+  suffix: deathsquad
   components:
   - type: Stamp
     stampedName: СОВЕРШЕННО СЕКРЕТНО
@@ -192,14 +192,14 @@
 - type: entity
   parent: [ BaseCentcommContraband, CentcomIDCard ]
   id: IDCardDeSqCommander
-  suffix:  
+  suffix: deathsquad
   name: Id Карта командира Эскадрона Смерти
   description: Как вы вообще эту id карту видите?
   components:
   - type: PresetIdCard
     job: DeSqCommander
   - type: Sprite
-    sprite: /Textures/DeathSquadFixed/identification_cards.rsi
+    sprite: /Textures/DeathSquad/identification_cards.rsi
     layers:
     - state: DeathSquad
   - type: Access
@@ -212,7 +212,7 @@
 - type: entity
   parent: IDCardDeSqCommander
   id: IDCardDeSqOfficer
-  suffix:  
+  suffix: deathsquad
   name: Id Карта офицера Эскадрона Смерти
   components:
   - type: PresetIdCard
@@ -221,7 +221,7 @@
 - type: entity
   parent: IDCardDeSqCommander
   id: IDCardDeSqHealer
-  suffix:  
+  suffix: deathsquad
   name: Id Карта медика Эскадрона Смерти
   components:
   - type: PresetIdCard
@@ -231,11 +231,11 @@
   parent: [ BaseCentcommContraband, CentcomPDA ]
   id: PDADeSqCommander
   name: КПК Эскадрона Cмерти
-  suffix: Кома, 
+  suffix: Кома,deathsquad
   description: Пахнет смертью.
   components:
   - type: Sprite
-    sprite: /Textures/DeathSquadFixed/pda.rsi
+    sprite: /Textures/DeathSquad/pda.rsi
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
       state: "pda-dq"
@@ -264,7 +264,7 @@
     borderColor: "#333333"
     accentVColor: "#390504"
   - type: Icon
-    sprite: /Textures/DeathSquadFixed/pda.rsi
+    sprite: /Textures/DeathSquad/pda.rsi
     state: pda-dq
   - type: Tag #  Ignore Chameleon tags
     tags:
@@ -274,7 +274,7 @@
   parent: PDADeSqCommander
   id: PDADeSqOfficer
   name: КПК Эскадрона Cмерти
-  suffix: Офицер, 
+  suffix: Офицер,deathsquad
   description: Пахнет смертью.
   components:
   - type: Pda
@@ -284,7 +284,7 @@
   parent: PDADeSqCommander
   id: PDADeSqHealer
   name: КПК Эскадрона Cмерти
-  suffix: Медик, 
+  suffix: Медик,deathsquad
   description: Пахнет смертью.
   components:
   - type: Pda
@@ -294,7 +294,7 @@
   parent: JobIcon
   id: JobIconDeathSquad
   icon:
-    sprite: /Textures/DeathSquadFixed/job_icons.rsi
+    sprite: /Textures/DeathSquad/job_icons.rsi
     state: DeathSquad
   jobName: Эскадрон Смерти
 
@@ -517,15 +517,15 @@
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitBase ]
   id: ClothingOuterHardsuitDeSqCommander
   name: Костюм командира Эскадрона Смерти
-  suffix:  
+  suffix: deathsquad
   description: Высокотехнологичный костюм предназначенный для командира отряда Эскадрона Смерти.
   components:
   - type: Sprite
-    sprite: /Textures/DeathSquadFixed/dq_hardsuit_commander.rsi
+    sprite: /Textures/DeathSquad/dq_hardsuit_commander.rsi
   - type: Clothing
-    sprite: /Textures/DeathSquadFixed/dq_hardsuit_commander.rsi
+    sprite: /Textures/DeathSquad/dq_hardsuit_commander.rsi
     equipSound:
-      path: /Textures/DeathSquadFixed/Sound/suit.ogg
+      path: /Textures/DeathSquad/Sound/suit.ogg
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -579,16 +579,16 @@
   parent: [ BaseCentcommContraband, ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitDeSqCommander
   name: Шлем командира Эскадрона Смерти
-  suffix:  
+  suffix: deathsquad
   description: Шлем от костюм командира Эскадрона Смерти.
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: /Textures/DeathSquadFixed/dq_helmet_commander.rsi
+    sprite: /Textures/DeathSquad/dq_helmet_commander.rsi
   - type: Clothing
-    sprite: /Textures/DeathSquadFixed/dq_helmet_commander.rsi
-    equipSound: /Textures/DeathSquadFixed/Sound/helmet.ogg
-    unequipSound: /Textures/DeathSquadFixed/Sound/helmet.ogg
+    sprite: /Textures/DeathSquad/dq_helmet_commander.rsi
+    equipSound: /Textures/DeathSquad/Sound/helmet.ogg
+    unequipSound: /Textures/DeathSquad/Sound/helmet.ogg
   - type: PointLight
     color: "#00B5E2"
   - type: PressureProtection
@@ -611,9 +611,9 @@
   description: Высокотехнологичный костюм предназначенный для офицеров отряда Эскадрона Смерти.
   components:
   - type: Sprite
-    sprite: /Textures/DeathSquadFixed/dq_hardsuit.rsi
+    sprite: /Textures/DeathSquad/dq_hardsuit.rsi
   - type: Clothing
-    sprite: /Textures/DeathSquadFixed/dq_hardsuit.rsi
+    sprite: /Textures/DeathSquad/dq_hardsuit.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.3
   - type: Armor
@@ -639,11 +639,11 @@
   description: Шлем от костюма офицера Эскадрона Смерти.
   components:
   - type: Sprite
-    sprite: /Textures/DeathSquadFixed/dq_helmet.rsi
+    sprite: /Textures/DeathSquad/dq_helmet.rsi
   - type: Clothing
-    sprite: /Textures/DeathSquadFixed/dq_helmet.rsi
-    equipSound: /Textures/DeathSquadFixed/Sound/helmet.ogg
-    unequipSound: /Textures/DeathSquadFixed/Sound/helmet.ogg
+    sprite: /Textures/DeathSquad/dq_helmet.rsi
+    equipSound: /Textures/DeathSquad/Sound/helmet.ogg
+    unequipSound: /Textures/DeathSquad/Sound/helmet.ogg
 
 - type: entity
   parent: ClothingOuterHardsuitDeSqCommander
@@ -652,9 +652,9 @@
   description: Высокотехнологичный костюм предназначенный для медиков отряда Эскадрона Смерти.
   components:
   - type: Sprite
-    sprite: /Textures/DeathSquadFixed/dq_alpha_hardsuit.rsi
+    sprite: /Textures/DeathSquad/dq_alpha_hardsuit.rsi
   - type: Clothing
-    sprite: /Textures/DeathSquadFixed/dq_alpha_hardsuit.rsi
+    sprite: /Textures/DeathSquad/dq_alpha_hardsuit.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: Armor
@@ -680,24 +680,24 @@
   description: Шлем от костюма полевого медика Эскадрона Смерти.
   components:
   - type: Sprite
-    sprite: /Textures/DeathSquadFixed/dq_alpha_helmet.rsi
+    sprite: /Textures/DeathSquad/dq_alpha_helmet.rsi
   - type: Clothing
-    sprite: /Textures/DeathSquadFixed/dq_alpha_helmet.rsi
-    equipSound: /Textures/DeathSquadFixed/Sound/helmet.ogg
-    unequipSound: /Textures/DeathSquadFixed/Sound/helmet.ogg
+    sprite: /Textures/DeathSquad/dq_alpha_helmet.rsi
+    equipSound: /Textures/DeathSquad/Sound/helmet.ogg
+    unequipSound: /Textures/DeathSquad/Sound/helmet.ogg
 
 - type: entity
   parent: ClothingShoesBootsMag
   id: ClothingShoesBootsMagDeSq
   name: ботинки Эскадрона Смерти
-  suffix:  
+  suffix: deathsquad
   description: Самые современные магнитные ботинки в узнаваемых цветах.
   components:
   - type: Sprite
-    sprite: /Textures/DeathSquadFixed/dq_boots.rsi
+    sprite: /Textures/DeathSquad/dq_boots.rsi
     state: icon
   - type: Clothing
-    sprite: /Textures/DeathSquadFixed/dq_boots.rsi
+    sprite: /Textures/DeathSquad/dq_boots.rsi
   - type: Magboots
     toggleAction: ActionToggleMagbootsAdvanced
   - type: ClothingSpeedModifier
@@ -707,20 +707,20 @@
   - type: NoSlip
   - type: FootstepModifier
     footstepSoundCollection:
-      path: /Textures/DeathSquadFixed/Sound/magfootsteps.ogg
+      path: /Textures/DeathSquad/Sound/magfootsteps.ogg
 
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesDeSq
   name: боевые перчатки Эскадрона Смерти
-  suffix:  
+  suffix: deathsquad
   description: Силовые перчатки, многократно усиливающие механическую силу удара.
   components:
   - type: Insulated
   - type: Sprite
-    sprite: /Textures/DeathSquadFixed/dq_gloves.rsi
+    sprite: /Textures/DeathSquad/dq_gloves.rsi
   - type: Clothing
-    sprite: /Textures/DeathSquadFixed/dq_gloves.rsi
+    sprite: /Textures/DeathSquad/dq_gloves.rsi
   - type: StaminaDamageOnHit
     damage: 15
   - type: MeleeWeapon
@@ -729,7 +729,7 @@
       types:
         Blunt: 30
     soundHit:
-      path: /Textures/DeathSquadFixed/Sound/glovepunch.ogg
+      path: /Textures/DeathSquad/Sound/glovepunch.ogg
     animation: WeaponArcFist
   - type: Fiber
     fiberMaterial: fibers-insulative
@@ -738,7 +738,7 @@
   parent: ClothingHeadset
   id: ClothingHeadsetDeSq
   name: гарнитура Эскадрона Смерти
-  suffix:  
+  suffix: deathsquad
   description: Гарнитура бойцов отряда Эскадрона Смерти.
   components:
   - type: ContainerFill
@@ -747,14 +747,14 @@
       - EncryptionKeyDeSq
       - EncryptionKeyStationMaster
   - type: Sprite
-    sprite: /Textures/DeathSquadFixed/dq_headset.rsi
+    sprite: /Textures/DeathSquad/dq_headset.rsi
   - type: Clothing
-    sprite: /Textures/DeathSquadFixed/dq_headset.rsi
+    sprite: /Textures/DeathSquad/dq_headset.rsi
 
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeyDeSq
-  suffix:  
+  suffix: deathsquad
   name: ключ шифрования Эскадрона Эмерти
   description: Ключ шифрования несущих смерть и хаос.
   components:
@@ -765,7 +765,7 @@
     - CentCom
     defaultChannel: DeSq
   - type: Sprite
-    sprite: /Textures/DeathSquadFixed/encryption_keys.rsi
+    sprite: /Textures/DeathSquad/encryption_keys.rsi
     layers:
     - state: crypt_blue
     - state: ds_label
@@ -778,34 +778,34 @@
   color: "#1700cb"
   longRange: true
 
- - type: entity #Уберите коменты у этого, если хотите отдельный канал для ДСО,т.е.
-   parent: EncryptionKey #ОБР+РХБЗЗ, если например на смене есть ОЦК,
-   id: EncryptionKeyDSO #что бы важные приказы не были упущены
-   name: ключ шифрования "ДСО"
-   components:
-   - type: EncryptionKey
-     channels:
-     - DSO
-     defaultChannel: DSO
-   - type: Sprite
-     layers:
-     - state: crypt_blue
-     - state: nano_label
+# - type: entity #Уберите коменты у этого, если хотите отдельный канал для ДСО,т.е.
+#   parent: EncryptionKey #ОБР+РХБЗЗ, если например на смене есть ОЦК,
+#   id: EncryptionKeyDSO #что бы важные приказы не были упущены
+#   name: ключ шифрования "ДСО"
+#   components:
+#   - type: EncryptionKey
+#     channels:
+#     - DSO
+#     defaultChannel: DSO
+#   - type: Sprite
+#     layers:
+#     - state: crypt_blue
+#     - state: nano_label
 
- - type: radioChannel
-   id: DSO
-   name: ДСО
-   keycode: ':' # inventor05-Localization
-   frequency: 23325 # dd.mm.yy
-   color: "#00aaff"
-   # long range since otherwise it'd defeat the point of a handheld radio independent of telecomms - by Corvax
-   longRange: true
+# - type: radioChannel
+#   id: DSO
+#   name: ДСО
+#   keycode: ':' # inventor05-Localization
+#   frequency: 23325 # dd.mm.yy
+#   color: "#00aaff"
+#   # long range since otherwise it'd defeat the point of a handheld radio independent of telecomms - by Corvax
+#   longRange: true
 
 - type: entity
   parent: ClothingBackpack
   id: ClothingDeSqBackpack
   name: рюкзак Эскадрона Смерти
-  suffix: Пустой, 
+  suffix: Пустой,deathsquad
   description: Рюкзак повышенной вместимости отряда Эскадрона Смерти.
   components:
   - type: Sprite
@@ -821,7 +821,7 @@
   parent: ClothingDeSqBackpack
   id: ClothingDeSqBackpackCommander
   name: рюкзак Эскадрона Смерти
-  suffix: Кома, 
+  suffix: Кома,deathsquad
   description: Рюкзак повышенной вместимости отряда Эскадрона Смерти.
   components:
   - type: StorageFill
@@ -841,7 +841,7 @@
   parent: ClothingDeSqBackpack
   id: ClothingDeSqBackpackOfficer
   name: рюкзак Эскадрона Смерти
-  suffix: Офицер, 
+  suffix: Офицер,deathsquad
   description: Рюкзак повышенной вместимости отряда Эскадрона Смерти.
   components:
   - type: StorageFill
@@ -860,7 +860,7 @@
   parent: ClothingDeSqBackpack
   id: ClothingDeSqBackpackHealer
   name: рюкзак Эскадрона Смерти
-  suffix: Медик, 
+  suffix: Медик,deathsquad
   description: Рюкзак повышенной вместимости одноименного отряда
   components:
   - type: StorageFill
@@ -911,11 +911,11 @@
   name: экстренный боевой медипен
   parent: ChemicalMedipen
   id: EmergencyMedipenDeSq
-  suffix:  
+  suffix: deathsquad
   description: Экстренный медипен, который в кратчайшие сроки ставит на ноги даже при самых тяжелых травмах. Из-за дороговизны и трудности производства применяется только элитными отрядами.
   components:
   - type: Sprite
-    sprite: /Textures/DeathSquadFixed/medipen.rsi
+    sprite: /Textures/DeathSquad/medipen.rsi
     netsync: false
     layers:
     - state: medipen-ds
@@ -939,25 +939,25 @@
   name: пульсовый карабин
   parent: WeaponPulseRifle
   id: WeaponDeSqPulseRifle
-  suffix:  
+  suffix: deathsquad
   description: Энергетическая винтовка тяжелого типа, которой вооружены солдаты Эскадрона Смерти.
   components:
   - type: Gun
     fireRate: 2.5
     soundGunshot:
-      path: /Textures/DeathSquadFixed/Sound/rifle.ogg
+      path: /Textures/DeathSquad/Sound/rifle.ogg
 
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesHudDeSq
-  suffix:  
+  suffix: deathsquad
   name: визор Эскадрона Cмерти
   description: Визор, показывающий информации о членах экипажа.
   components:
   - type: Sprite
-    sprite: /Textures/DeathSquadFixed/dq_visor.rsi
+    sprite: /Textures/DeathSquad/dq_visor.rsi
   - type: Clothing
-    sprite: /Textures/DeathSquadFixed/dq_visor.rsi
+    sprite: /Textures/DeathSquad/dq_visor.rsi
   - type: ShowJobIcons
   - type: ShowMindShieldIcons
   - type: Tag
@@ -968,7 +968,7 @@
   parent: ClothingEyesBase
   id: ClothingEyesHudOmniDeSq
   name: усовершенствованный визор Эскадрона Смерти
-  suffix:  
+  suffix: deathsquad
   description: Визор, сочитающий в себе все остальные. Из-за крайней сложности и дороговизны был создан в единичных экземплярах.
   components:
   - type: Sprite
@@ -991,7 +991,7 @@
   parent: ClothingBeltStorageBase
   id: ClothingBeltDeSqCommander
   name: штурмовой пояс командира
-  suffix:  
+  suffix: deathsquad
   description: Штурмовой пояс, в котором можно хранить боеприпасы или другие убийственные вещи.
   components:
   - type: Sprite
@@ -1105,7 +1105,7 @@
   id: WeaponTurretDeSq
   name: турель Эскадрона Смерти
   description: Турель с системой автоматического огня.
-  suffix:  
+  suffix: deathsquad
   components:
   - type: NpcFactionMember
     factions:
@@ -1121,10 +1121,10 @@
   parent: [DoorRemoteDefault, BaseCommandContraband]
   id: DoorRemoteDeSq
   name: путь от шлюзов для отряда Эскадрона Смерти
-  suffix:  
+  suffix: deathsquad
   components:
   - type: Sprite
-    sprite: /Textures/DeathSquadFixed/door_remote.rsi
+    sprite: /Textures/DeathSquad/door_remote.rsi
     state: door_remote_ds
   - type: Access
     groups:
@@ -1162,7 +1162,6 @@
     - Vulpkanin
     - Resomi
     - Vox
-    - Tajaran
   components:
     - type: GhostRole
       allowMovement: true
@@ -1254,10 +1253,10 @@
 - type: entity
   name: командир Эскадрона Смерти
   id: MobHumanDeSqCommander
-  suffix: DSComRole, 
+  suffix: DSComRole,deathsquad
   components:
   - type: Sprite
-    sprite: /Textures/DeathSquadFixed/jobs.rsi
+    sprite: /Textures/DeathSquad/jobs.rsi
     state: DeSqCom
   - type: RandomMetadata
     nameSegments:
@@ -1384,10 +1383,10 @@
 - type: entity
   name: Офицер Эскадрона Смерти
   id: MobHumanDeSqOfficer
-  suffix:  , DeathSquad
+  suffix: deathsquad, DeathSquad
   components:
   - type: Sprite
-    sprite: /Textures/DeathSquadFixed/jobs.rsi
+    sprite: /Textures/DeathSquad/jobs.rsi
     state: DeSqOfficer
   - type: RandomHumanoidAppearance
     randomizeName: false
@@ -1428,7 +1427,6 @@
     - Vulpkanin
     - Resomi
     - Vox
-      Tajaran
   components:
     - type: GhostRole
       allowMovement: true
@@ -1520,10 +1518,10 @@
 - type: entity
   name: Медик Эскадрона Смерти
   id: MobHumanDeSqHealer
-  suffix:  
+  suffix: deathsquad
   components:
   - type: Sprite
-    sprite: /Textures/DeathSquadFixed/jobs.rsi
+    sprite: /Textures/DeathSquad/jobs.rsi
     state: DeSqHealer
   - type: RandomHumanoidAppearance
     randomizeName: false
@@ -1537,12 +1535,12 @@
 - type: entity
   name: SP-91-RC
   parent: BaseWeaponRifle
-  suffix:  
+  suffix: deathsquad
   id: WeaponDeSqRifleSP
   description: Крупный пистолет-пулемет использующий патроны калибра .45 магнум
   components:
   - type: Sprite
-    sprite: /Textures/DeathSquadFixed/sp-91.rsi
+    sprite: /Textures/DeathSquad/sp-91.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -1551,7 +1549,7 @@
   - type: Gun
     fireRate: 7
     soundGunshot:
-      path: /Textures/DeathSquadFixed/Sound/sp-91.ogg
+      path: /Textures/DeathSquad/Sound/sp-91.ogg
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
@@ -1591,11 +1589,11 @@
   id: SyringeAmmoDeSq
   name: Шприц-снаряд
   abstract: true
-  suffix:  
+  suffix: deathsquad
   description: Шприц-снаряд, вводящий реагент при попадании.
   components:
   - type: Sprite
-    sprite: /Textures/DeathSquadFixed/syringe.rsi
+    sprite: /Textures/DeathSquad/syringe.rsi
     layers:
       - state: minisyringe1
         map: ["enum.SolutionContainerLayers.Fill"]
@@ -1623,7 +1621,7 @@
 - type: entity
   name: Коробка шприцов-снарядов
   parent: BoxCardboard
-  suffix: Пусто, 
+  suffix: Пусто,deathsquad
   id: BoxSyringeAmmoDeSq
   description: Полная коробка веселья.
   components:
@@ -1638,7 +1636,7 @@
 
 - type: entity
   parent: PrefilledSyringeAmmoDeSq
-  suffix: Политриновая кислота, 
+  suffix: Политриновая кислота,deathsquad
   id: SyringeAmmoDeSqPolytrinic
   components:
   - type: Label
@@ -1653,7 +1651,7 @@
 
 - type: entity
   parent: BoxSyringeAmmoDeSq
-  suffix: Политриновая кислота, 
+  suffix: Политриновая кислота,deathsquad
   id: BoxSyringeAmmoDeSqPolytrinic
   components:
   - type: Label
@@ -1665,7 +1663,7 @@
 
 - type: entity
   parent: PrefilledSyringeAmmoDeSq
-  suffix: Ноктюрин, 
+  suffix: Ноктюрин,deathsquad
   id: SyringeAmmoDeSqNocturine
   components:
   - type: Label
@@ -1680,7 +1678,7 @@
 
 - type: entity
   parent: BoxSyringeAmmoDeSq
-  suffix: Ноктюрин, 
+  suffix: Ноктюрин,deathsquad
   id: BoxSyringeAmmoDeSqNocturine
   components:
   - type: Label
@@ -1692,7 +1690,7 @@
 
 - type: entity
   parent: PrefilledSyringeAmmoDeSq
-  suffix: Ромерол, 
+  suffix: Ромерол,deathsquad
   id: SyringeAmmoDeSqRomerol
   components:
   - type: Label
@@ -1707,7 +1705,7 @@
 
 - type: entity
   parent: BoxSyringeAmmoDeSq
-  suffix: Ромерол, 
+  suffix: Ромерол,deathsquad
   id: BoxSyringeAmmoDeSqRomerol
   components:
   - type: Label
@@ -1719,7 +1717,7 @@
 
 - type: entity
   parent: PrefilledSyringeAmmoDeSq
-  suffix: Свинец, 
+  suffix: Свинец,deathsquad
   id: SyringeAmmoDeSqLead
   components:
   - type: Label
@@ -1734,7 +1732,7 @@
 
 - type: entity
   parent: BoxSyringeAmmoDeSq
-  suffix: Свинец, 
+  suffix: Свинец,deathsquad
   id: BoxSyringeAmmoDeSqLead
   components:
   - type: Label
@@ -1746,7 +1744,7 @@
 
 - type: entity
   parent: PrefilledSyringeAmmoDeSq
-  suffix: Пакс, 
+  suffix: Пакс,deathsquad
   id: SyringeAmmoDeSqPax
   components:
   - type: Label
@@ -1761,7 +1759,7 @@
 
 - type: entity
   parent: BoxSyringeAmmoDeSq
-  suffix: Пакс, 
+  suffix: Пакс,deathsquad
   id: BoxSyringeAmmoDeSqPax
   components:
   - type: Label
@@ -1773,7 +1771,7 @@
 
 - type: entity 
   parent: PrefilledSyringeAmmoDeSq
-  suffix: Норэпинефриновая кислота, 
+  suffix: Норэпинефриновая кислота,deathsquad
   id: SyringeAmmoDeSqNorepinephric
   components:
   - type: Label
@@ -1788,7 +1786,7 @@
 
 - type: entity
   parent: BoxSyringeAmmoDeSq
-  suffix: Норэпинефриновая кислота, 
+  suffix: Норэпинефриновая кислота,deathsquad
   id: BoxSyringeAmmoDeSqNorepinephric
   components:
   - type: Label
@@ -1800,7 +1798,7 @@
 
 - type: entity
   parent: PrefilledSyringeAmmoDeSq
-  suffix: Тазинид, 
+  suffix: Тазинид,deathsquad
   id: SyringeAmmoDeSqTazinide
   components:
   - type: Label
@@ -1815,7 +1813,7 @@
 
 - type: entity
   parent: BoxSyringeAmmoDeSq
-  suffix: Тазинид, 
+  suffix: Тазинид,deathsquad
   id: BoxSyringeAmmoDeSqTazinide
   components:
   - type: Label
@@ -1827,7 +1825,7 @@
 
 - type: entity
   parent: PrefilledSyringeAmmoDeSq
-  suffix: Лексорин, 
+  suffix: Лексорин,deathsquad
   id: SyringeAmmoDeSqLexorin
   components:
   - type: Label
@@ -1842,7 +1840,7 @@
 
 - type: entity
   parent: BoxSyringeAmmoDeSq
-  suffix: Лексорин, 
+  suffix: Лексорин,deathsquad
   id: BoxSyringeAmmoDeSqLexorin
   components:
   - type: Label
@@ -1855,12 +1853,12 @@
 - type: entity
   parent: WeaponImprovisedPneumaticCannon
   name: Мультизарядный шприцемет
-  suffix:  
+  suffix: deathsquad
   id: DeSqSyringeGun
   description: Мультизарядный шприцемет, позволяющий вводить вещество на расстоянии
   components:
   - type: Sprite
-    sprite: /Textures/DeathSquadFixed/acidgun.rsi
+    sprite: /Textures/DeathSquad/acidgun.rsi
     layers:
     - state: icon
   - type: Item
@@ -1878,13 +1876,13 @@
     - SemiAuto
     - FullAuto
     soundGunshot:
-      path: /Textures/DeathSquadFixed/Sound/pew.ogg
+      path: /Textures/DeathSquad/Sound/pew.ogg
     soundEmpty:
-      path: /Textures/DeathSquadFixed/Sound/empty.ogg
+      path: /Textures/DeathSquad/Sound/empty.ogg
   - type: Storage
-    storageOpenSound: /Textures/DeathSquadFixed/Sound/loading2.ogg
-    storageCloseSound: /Textures/DeathSquadFixed/Sound/loading3.ogg
-    storageInsertSound: /Textures/DeathSquadFixed/Sound/loading.ogg
+    storageOpenSound: /Textures/DeathSquad/Sound/loading2.ogg
+    storageCloseSound: /Textures/DeathSquad/Sound/loading3.ogg
+    storageInsertSound: /Textures/DeathSquad/Sound/loading.ogg
     maxItemSize: Normal
     grid:
     - 0,0,2,2
@@ -1892,7 +1890,7 @@
       tags:
         - SyringeBullet
   - type: Clothing
-    sprite: /Textures/DeathSquadFixed/acidgun.rsi
+    sprite: /Textures/DeathSquad/acidgun.rsi
     quickEquip: false
     slots:
     - Back
@@ -1902,7 +1900,7 @@
 
 - type: entity
   name: Энергетический меч-бензопила
-  suffix:  
+  suffix: deathsquad
   parent: BaseItem
   id: DeSqChainsword
   description: Технологии и ультранасилие в одном флаконе!
@@ -1910,16 +1908,16 @@
   - type: EnergySword
   - type: ItemToggle
     soundActivate:
-      path: /Textures/DeathSquadFixed/Sound/start.ogg
+      path: /Textures/DeathSquad/Sound/start.ogg
       params:
         volume: 5
     soundDeactivate:
-      path: /Textures/DeathSquadFixed/Sound/start.ogg
+      path: /Textures/DeathSquad/Sound/start.ogg
       params:
         volume: 5
   - type: ItemToggleActiveSound
     activeSound:
-      path: /Textures/DeathSquadFixed/Sound/idle.ogg
+      path: /Textures/DeathSquad/Sound/idle.ogg
       params:
         volume: -10
   - type: ComponentToggler
@@ -1933,16 +1931,16 @@
   - type: ItemTogglePointLight
   - type: ItemToggleMeleeWeapon
     activatedSoundOnHit:
-      path: /Textures/DeathSquadFixed/Sound/hit.ogg
+      path: /Textures/DeathSquad/Sound/hit.ogg
       params:
         variation: 0.250
     activatedSoundOnHitNoDamage:
-      path: /Textures/DeathSquadFixed/Sound/hit.ogg
+      path: /Textures/DeathSquad/Sound/hit.ogg
       params:
         variation: 0.250
         volume: -10
     activatedSoundOnSwing:
-      path: /Textures/DeathSquadFixed/Sound/miss.ogg
+      path: /Textures/DeathSquad/Sound/miss.ogg
       params:
         variation: 0.125
     activatedDamage:
@@ -1956,7 +1954,7 @@
     useSound:
       path: /Audio/Items/crowbar.ogg
   - type: Sprite
-    sprite: /Textures/DeathSquadFixed/chainsword.rsi
+    sprite: /Textures/DeathSquad/chainsword.rsi
     layers:
       - state: chainsword
       - state: chainsword_blade
@@ -1979,7 +1977,7 @@
     netsync: false
   - type: Item
     size: Normal
-    sprite: /Textures/DeathSquadFixed/chainsword.rsi
+    sprite: /Textures/DeathSquad/chainsword.rsi
   - type: UseDelay
     delay: 1.0
   - type: Appearance
@@ -1998,7 +1996,7 @@
       - state: inhand-right-blade
         shader: unshaded
   - type: Clothing
-    sprite: /Textures/DeathSquadFixed/acidgun.rsi
+    sprite: /Textures/DeathSquad/acidgun.rsi
     quickEquip: false
     slots:
     - Back
@@ -2011,8 +2009,8 @@
   description: Ручка Эскадрона Смерти, которую изготавливают специально для самых элитных отрядов NanoTrasen!
   components:
   - type: Sprite
-    sprite: /Textures/DeathSquadFixed/pen.rsi
+    sprite: /Textures/DeathSquad/pen.rsi
     state: pen_deathsquad
   - type: Item
-    sprite: /Textures/DeathSquadFixed/pen.rsi
+    sprite: /Textures/DeathSquad/pen.rsi
     heldPrefix: pen_deathsquad
