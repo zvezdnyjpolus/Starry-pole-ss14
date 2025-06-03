@@ -94,7 +94,7 @@ public abstract class SharedChargesSystem : EntitySystem
     /// <summary>
     /// Adds the specified charges. Does not reset the accumulator.
     /// </summary>
-    public void AddCharges(Entity<LimitedChargesComponent?, AutoRechargeComponent?> action, int addCharges)
+    public void AddCharges(Entity<LimitedChargesComponent?, AutoRechargeComponent?> action, float addCharges)
     {
         if (addCharges == 0)
             return;
@@ -124,7 +124,7 @@ public abstract class SharedChargesSystem : EntitySystem
             action.Comp1.LastUpdate += (remainder * duration);
         }
 
-        action.Comp1.LastCharges = Math.Clamp(action.Comp1.LastCharges + addCharges, 0, action.Comp1.MaxCharges);
+        action.Comp1.LastCharges = (int)Math.Clamp(action.Comp1.LastCharges + addCharges, 0, action.Comp1.MaxCharges);
         Dirty(action.Owner, action.Comp1);
     }
 

@@ -1,5 +1,4 @@
 using Content.Shared.Charges.Systems;
-using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -17,14 +16,12 @@ public sealed partial class LimitedChargesComponent : Component
     /// <summary>
     ///     The max charges this action has.
     /// </summary>
-    [DataField("maxCharges"), ViewVariables(VVAccess.ReadWrite)]
-    [AutoNetworkedField]
-    public FixedPoint2 MaxCharges = 3;
+    [DataField, AutoNetworkedField, Access(Other = AccessPermissions.Read)]
+    public int MaxCharges = 3;
 
     /// <summary>
     /// Last time charges was changed. Used to derive current charges.
     /// </summary>
-    [DataField("charges"), ViewVariables(VVAccess.ReadWrite)]
-    [AutoNetworkedField]
-    public FixedPoint2 Charges = 3;
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
+    public TimeSpan LastUpdate;
 }

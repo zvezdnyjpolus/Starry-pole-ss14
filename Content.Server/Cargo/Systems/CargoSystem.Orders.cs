@@ -132,21 +132,8 @@ namespace Content.Server.Cargo.Systems
                     continue;
                 bank.NextIncomeTime += bank.IncomeDelay;
 
-                var stationQuery = EntityQueryEnumerator<StationBankAccountComponent>(); // Corvax-Next-StockTrading: Early merge #33123
-                while (stationQuery.MoveNext(out var uid, out var bank)) // Corvax-Next-StockTrading: Early merge #33123
-                {
-                    var balanceToAdd = (int) Math.Round(bank.IncreasePerSecond * bank.IncomeDelay.TotalSeconds);
-                    UpdateBankAccount((uid, bank), balanceToAdd, bank.RevenueDistribution);
-                }
-
-                var query = EntityQueryEnumerator<CargoOrderConsoleComponent>();
-                while (query.MoveNext(out var uid, out var _))
-                {
-                    if (!_uiSystem.IsUiOpen(uid, CargoConsoleUiKey.Orders)) continue;
-
-                    var station = _station.GetOwningStation(uid);
-                    UpdateOrderState(uid, station);
-                }
+                var balanceToAdd = (int)Math.Round(bank.IncreasePerSecond * bank.IncomeDelay.TotalSeconds);
+                UpdateBankAccount((uid, bank), balanceToAdd, bank.RevenueDistribution);
             }
         }
 

@@ -6,7 +6,7 @@ namespace Content.Shared._Lavaland.Weapons.Ranged.Upgrades.Components;
 /// A <see cref="GunUpgradeComponent"/> for increasing the speed of a gun's projectile.
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedGunUpgradeSystem))]
-public sealed partial class GunUpgradeSpeedComponent : Component
+public sealed partial class LavalandGunUpgradeSpeedComponent : Component
 {
     [DataField]
     public float Coefficient = 1;

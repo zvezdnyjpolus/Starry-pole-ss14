@@ -1,4 +1,4 @@
-﻿- type: body
+﻿- type: body # Corvax-Next parts id format edit (Vright_arm -> right arm)
   name: "Ipc"
   id: Ipc
   root: torso
@@ -12,33 +12,33 @@
     torso:
       part: TorsoIpc
       connections:
-      - right_arm
-      - left_arm
-      - right_leg
-      - left_leg
+      - right arm
+      - left arm
+      - right leg
+      - left leg
       organs:
         brain: OrganIPCBrain
-    right_arm:
+    right arm:
       part: RightArmIpc
       connections:
-      - right_hand
-    left_arm:
+      - right hand
+    left arm:
       part: LeftArmIpc
       connections:
-      - left_hand
-    right_hand:
+      - left hand
+    right hand:
       part: RightHandIpc
-    left_hand:
+    left hand:
       part: LeftHandIpc
-    right_leg:
+    right leg:
       part: RightLegIpc
       connections:
-      - right_foot
-    left_leg:
+      - right foot
+    left leg:
       part: LeftLegIpc
       connections:
-      - left_foot
-    right_foot:
+      - left foot
+    right foot:
       part: RightFootIpc
-    left_foot:
+    left foot:
       part: LeftFootIpc

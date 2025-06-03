@@ -46,16 +46,10 @@ public sealed partial class RCDPrototype : IPrototype
     public string? Prototype { get; private set; }
 
     /// <summary>
-    /// If the entity can be flipped, this prototype is available as an alternate (mode dependent)
-    /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public string? MirrorPrototype { get; private set; } = string.Empty;
-    
-    /// <summary>
     /// Number of charges consumed when the operation is completed
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public FixedPoint2 Cost { get; private set; } = 1;
+    public float Cost { get; private set; } = 1;
 
     /// <summary>
     /// The length of the operation
@@ -120,6 +114,12 @@ public sealed partial class RCDPrototype : IPrototype
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public RcdRotation Rotation { get; private set; } = RcdRotation.User;
+
+    /// <summary>
+    /// If the entity can be flipped, this prototype is available as an alternate (mode dependent)
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public string? MirrorPrototype { get; private set; } = string.Empty;
 }
 
 public enum RcdMode : byte

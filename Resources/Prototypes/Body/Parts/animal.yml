@@ -122,3 +122,13 @@
   - type: BodyPart
     partType: Hand
     symmetry: Right
+
+- type: entity
+  parent: [PartAnimal, BaseHead]
+  id: HeadAnimal
+  name: animal head
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: head_m

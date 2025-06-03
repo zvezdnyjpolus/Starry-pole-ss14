@@ -21,7 +21,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Numerics;
 
- namespace Content.Server.Shuttles.Systems;
+namespace Content.Server.Shuttles.Systems;
 
 // shuttle impact damage ported from Goobstation (AGPLv3) with agreement of all coders involved
 public sealed partial class ShuttleSystem
@@ -100,10 +100,8 @@ public sealed partial class ShuttleSystem
         )
             return;
 
-     private void InitializeImpact()
-     {
-         SubscribeLocalEvent<ShuttleComponent, StartCollideEvent>(OnShuttleCollide);
-     }
+        var ourBody = args.OurBody;
+        var otherBody = args.OtherBody;
 
         // TODO: Would also be nice to have a continuous sound for scraping.
         var ourXform = Transform(args.OurEntity);

@@ -5,7 +5,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared._Lavaland.Weapons.Ranged.Upgrades.Components;
 
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedGunUpgradeSystem))]
-public sealed partial class UpgradeableGunComponent : Component
+public sealed partial class LavalandUpgradeableGunComponent : Component
 {
     [DataField]
     public string UpgradesContainerId = "upgrades";

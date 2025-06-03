@@ -22,8 +22,6 @@ public sealed partial class MaterialStorageControl : ScrollContainer
     private readonly MaterialStorageSystem _materialStorage;
 
     private EntityUid? _owner;
-
-_   silo = _entityManager.System<SiloSystem>(); // Goobstation
     private Dictionary<ProtoId<MaterialPrototype>, int> _currentMaterials = new();
 
     public MaterialStorageControl()
@@ -54,30 +52,7 @@ _   silo = _entityManager.System<SiloSystem>(); // Goobstation
         }
 
         var canEject = materialStorage.CanEjectStoredMaterials;
-        
-        // Goobstation start
-
-        Dictionary<string, int> storage;
-        Dictionary<string, int> mats;
-        if (materialStorage.ConnectToSilo)
-        {
-            var silo = _silo.GetSilo(_owner.Value);
-            storage = silo != null
-                ? silo.Value.Comp.Storage.Select(pair => (pair.Key.Id, pair.Value)).ToDictionary()
-                : materialStorage.Storage.Select(pair => (pair.Key.Id, pair.Value)).ToDictionary();
-            SiloLabel.Visible = silo != null;
-        }
-        else
-        {
-            storage = materialStorage.Storage.Select(pair => (pair.Key.Id, pair.Value)).ToDictionary();
-            SiloLabel.Visible = false;
-        }
-
-        mats = materialStorage.DisallowOreEjection
-            ? FilterOutOres(storage)
-            : storage;
-
-        // Goobstation end
+        var mats = _materialStorage.GetStoredMaterials((_owner.Value, materialStorage));
 
         if (_currentMaterials.Equals(mats))
             return;

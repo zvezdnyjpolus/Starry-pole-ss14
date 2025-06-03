@@ -22,6 +22,7 @@ using Content.Shared.Verbs;
 using Content.Shared.Examine;
 using Content.Shared.Storage;
 using Content.Server.Hands.Systems;
+using Content.Shared.Labels.EntitySystems;
 
 namespace Content.Server.Chemistry.EntitySystems
 {
@@ -49,8 +50,7 @@ namespace Content.Server.Chemistry.EntitySystems
             SubscribeLocalEvent<ReagentDispenserComponent, ComponentStartup>(SubscribeUpdateUiState);
             SubscribeLocalEvent<ReagentDispenserComponent, SolutionContainerChangedEvent>(SubscribeUpdateUiState);
             SubscribeLocalEvent<ReagentDispenserComponent, EntInsertedIntoContainerMessage>(OnEntInserted); // Corvax-Next-Labeler: SubscribeUpdateUiState < OnEntInserted
-            SubscribeLocalEvent<ReagentDispenserComponent, EntRemovedFromContainerMessage>(SubscribeUpdateUiState);
-            SubscribeLocalEvent<ReagentDispenserComponent, EntInsertedIntoContainerMessage>(SubscribeUpdateUiState, after: [typeof(SharedStorageSystem)]);
+            // SubscribeLocalEvent<ReagentDispenserComponent, EntInsertedIntoContainerMessage>(SubscribeUpdateUiState, after: [typeof(SharedStorageSystem)]); // Corvax-Next-Labeler commented
             SubscribeLocalEvent<ReagentDispenserComponent, EntRemovedFromContainerMessage>(SubscribeUpdateUiState, after: [typeof(SharedStorageSystem)]);
             SubscribeLocalEvent<ReagentDispenserComponent, BoundUIOpenedEvent>(SubscribeUpdateUiState);
 
@@ -261,7 +261,7 @@ namespace Content.Server.Chemistry.EntitySystems
         /// </summary>
         private void OnMapInit(Entity<ReagentDispenserComponent> ent, ref MapInitEvent args)
         {
-            component.AutoLabel = component.CanAutoLabel; // Corvax-Next-Labeler
+            ent.Comp.AutoLabel = ent.Comp.CanAutoLabel; // Corvax-Next-Labeler
 
             _itemSlotsSystem.AddItemSlot(ent.Owner, SharedReagentDispenser.OutputSlotName, ent.Comp.BeakerSlot);
         }

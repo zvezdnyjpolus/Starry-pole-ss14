@@ -129,6 +129,14 @@
         sprite: Mobs/Effects/burn_damage.rsi
   - type: ProtectedFromStepTriggers
   - type: EyeProtection
+  - type: Penetratable # Corvax-Next - Better snipers
+    penetrateDamage: 50
+    damagePenalty: 0.2
+  - type: Targeting # _CorvaxNext: surgery
+  - type: SurgeryTarget # _CorvaxNext: surgery
+  - type: LayingDown # _CorvaxNext: LayingDown Laying Down
+  - type: AutoCryoSleepable # Corvax-Next-AutoCryo
+  - type: OfferItem # Corvax-Next-Offer
 
 - type: entity
   save: false

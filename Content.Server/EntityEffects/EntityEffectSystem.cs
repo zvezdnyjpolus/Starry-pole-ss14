@@ -45,6 +45,8 @@ using Robust.Shared.Random;
 
 using TemperatureCondition = Content.Shared.EntityEffects.EffectConditions.Temperature; // disambiguate the namespace
 using PolymorphEffect = Content.Shared.EntityEffects.Effects.Polymorph;
+using Content.Shared._Lavaland.EntityEffects.EffectConditions;
+using Content.Server._Lavaland.Procedural.Components;
 
 namespace Content.Server.EntityEffects;
 
@@ -123,7 +125,27 @@ public sealed class EntityEffectSystem : EntitySystem
         SubscribeLocalEvent<ExecuteEntityEffectEvent<PlantSpeciesChange>>(OnExecutePlantSpeciesChange);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<PolymorphEffect>>(OnExecutePolymorph);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<ResetNarcolepsy>>(OnExecuteResetNarcolepsy);
+
+        SubscribeLocalEvent<CheckEntityEffectConditionEvent<PressureThreshold>>(OnCheckPressureThreshold); // Corvax-Next-Lavaland
     }
+
+    // Corvax-Next-Lavaland Start
+    private void OnCheckPressureThreshold(ref CheckEntityEffectConditionEvent<PressureThreshold> args)
+    {
+        args.Result = false;
+
+        if (TryComp<TransformComponent>(args.Args.TargetEntity, out var transform))
+        {
+            if (args.Condition.WorksOnLavaland && HasComp<LavalandMapComponent>(transform.MapUid))
+                args.Result = true;
+
+            var mix = _atmosphere.GetTileMixture((args.Args.TargetEntity, transform));
+            var pressure = mix?.Pressure ?? 0f;
+
+            args.Result = pressure >= args.Condition.Min && pressure <= args.Condition.Max;
+        }
+    }
+    // Corvax-Next-Lavaland End
 
     private void OnCheckTemperature(ref CheckEntityEffectConditionEvent<TemperatureCondition> args)
     {

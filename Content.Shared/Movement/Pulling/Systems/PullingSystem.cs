@@ -49,6 +49,8 @@ using Robust.Shared.Random; // Goobstation
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.Damage.Systems;
+using Content.Shared.CombatMode;
+using Content.Shared.Effects;
 
 namespace Content.Shared.Movement.Pulling.Systems;
 
@@ -72,6 +74,13 @@ public sealed class PullingSystem : EntitySystem
     [Dependency] private readonly SharedVirtualItemSystem _virtualSystem = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly ContestsSystem _contests = default!; // Goobstation - Grab Intent
+    [Dependency] private readonly INetManager _netManager = default!;
+    [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly GrabThrownSystem _grabThrown = default!;
+    [Dependency] private readonly ThrowingSystem _throwing = default!;
+    [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
 
     public override void Initialize()
     {
@@ -163,15 +172,12 @@ public sealed class PullingSystem : EntitySystem
 
     private void OnStateChanged(EntityUid uid, PullerComponent component, ref UpdateMobStateEvent args)
     {
-        if (args.Handled)
+        if (component.Pulling == null)
             return;
 
-        if (!args.Cancelled
-            && TryComp<PullableComponent>(ent.Comp.Pulling, out var comp)
-            && ent.Comp.Pulling != null)
+        if (TryComp<PullableComponent>(component.Pulling, out var comp) && (args.State == MobState.Critical || args.State == MobState.Dead))
         {
-            if(_netManager.IsServer)
-                StopPulling((EntityUid) ent.Comp.Pulling, comp);
+            TryStopPull(component.Pulling.Value, comp);
         }
     }
     // Goobstation

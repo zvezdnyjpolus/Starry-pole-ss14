@@ -153,6 +153,9 @@
         },
         {
             "name": "select-type"
+        },
+		{
+            "name": "surgery-module"
         }
     ]
 }

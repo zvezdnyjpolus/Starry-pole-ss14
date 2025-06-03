@@ -9,7 +9,6 @@ using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
 using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.StatusEffect;
-using Content.Shared.Stacks;
 using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Whitelist;
@@ -35,7 +34,6 @@ public sealed partial class CloningSystem : EntitySystem
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
-    [Dependency] private readonly SharedStackSystem _stack = default!;
     [Dependency] private readonly SharedSubdermalImplantSystem _subdermalImplant = default!;
     [Dependency] private readonly NameModifierSystem _nameMod = default!;
 
@@ -182,10 +180,6 @@ public sealed partial class CloningSystem : EntitySystem
         // copy over important component data
         var ev = new CloningItemEvent(spawned);
         RaiseLocalEvent(original, ref ev);
-
-        // if the original is a stack, adjust the count of the copy
-        if (TryComp<StackComponent>(original, out var originalStack) && TryComp<StackComponent>(spawned, out var spawnedStack))
-            _stack.SetCount(spawned, originalStack.Count, spawnedStack);
 
         // if the original has items inside its storage, copy those as well
         if (TryComp<StorageComponent>(original, out var originalStorage) && TryComp<StorageComponent>(spawned, out var spawnedStorage))

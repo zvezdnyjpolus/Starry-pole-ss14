@@ -7,7 +7,7 @@ namespace Content.Shared._Lavaland.Weapons.Ranged.Upgrades.Components;
 /// A <see cref="GunUpgradeComponent"/> for increasing the damage of a gun's projectile.
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedGunUpgradeSystem))]
-public sealed partial class GunUpgradeComponentsComponent : Component
+public sealed partial class LavalandGunUpgradeComponentsComponent : Component
 {
     [DataField]
     public ComponentRegistry Components = new();
