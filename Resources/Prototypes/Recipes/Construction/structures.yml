@@ -642,9 +642,6 @@
 #      targets:
 #        - Lattice
 #        - Plating
-  icon:
-    sprite: Structures/catwalk.rsi
-    state: catwalk_preview
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false

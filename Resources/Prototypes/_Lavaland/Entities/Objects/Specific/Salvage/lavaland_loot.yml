@@ -13,7 +13,7 @@
 
 - type: entity
   id: LavalandVampirismCrystal
-  parent: BasePKAUpgrade
+  parent: LavalandBasePKAUpgrade
   name: a red crystal
   components:
   - type: Sprite

@@ -435,6 +435,25 @@
           visible: false # Lavaland Change
 
 - type: entity
+  parent: [ BaseRockGibtonite, AsteroidRock ]
+  id: AsteroidRockGibtonite
+  components:
+  - type: Sprite
+    layers:
+    - state: rock_asteroid
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_asteroid_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_asteroid_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_asteroid_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_asteroid_west
+    - state: gibtonite_inactive
+      visible: false
+      map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+
+- type: entity
   id: AsteroidRockMining
   parent: AsteroidRock
   name: asteroid rock

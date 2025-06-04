@@ -11,7 +11,7 @@ public sealed partial class LavalandGunUpgradeComponent : Component
     public List<ProtoId<TagPrototype>> Tags = new();
 
     [DataField]
-    public LocId ExamineText;
+    public LocId? ExamineText;
 
     [DataField]
     public int CapacityCost = 30; // By default drains 30% of the capacity.

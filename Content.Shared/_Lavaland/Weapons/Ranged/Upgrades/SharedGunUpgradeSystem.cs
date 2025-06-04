@@ -86,8 +86,12 @@ public abstract partial class SharedGunUpgradeSystem : EntitySystem
         {
             foreach (var upgrade in GetCurrentUpgrades(ent))
             {
-                args.PushMarkup(Loc.GetString(upgrade.Comp.ExamineText));
                 usedCapacity += upgrade.Comp.CapacityCost;
+
+                if (upgrade.Comp.ExamineText is null)
+                    continue;
+
+                args.PushMarkup(Loc.GetString(upgrade.Comp.ExamineText));
             }
             args.PushMarkup(Loc.GetString("lavaland-upgradeable-gun-total-remaining-capacity", ("value", ent.Comp.MaxUpgradeCapacity - usedCapacity)));
         }
@@ -95,7 +99,9 @@ public abstract partial class SharedGunUpgradeSystem : EntitySystem
 
     private void OnUpgradeExamine(Entity<LavalandGunUpgradeComponent> ent, ref ExaminedEvent args)
     {
-        args.PushMarkup(Loc.GetString(ent.Comp.ExamineText));
+        if (ent.Comp.ExamineText is not null)
+            args.PushMarkup(Loc.GetString(ent.Comp.ExamineText));
+
         args.PushMarkup(Loc.GetString("lavaland-gun-upgrade-examine-text-capacity-cost", ("value", ent.Comp.CapacityCost)));
     }
 

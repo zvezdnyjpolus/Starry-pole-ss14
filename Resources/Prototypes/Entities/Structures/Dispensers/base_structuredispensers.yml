@@ -67,6 +67,7 @@
         components:
         - FitsInDispenser
       priority: 9
+    canAutoLabel: true # Corvax-Next-Labeler
   - type: ItemSlots
   - type: ContainerContainer
     containers:

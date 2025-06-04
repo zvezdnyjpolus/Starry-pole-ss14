@@ -396,7 +396,7 @@
     - Deconstruct
   - type: LimitedCharges
     maxCharges: 45
-    charges: 45
+    lastCharges: 45
   - type: Sprite
     sprite: Objects/Tools/rpd.rsi
 
